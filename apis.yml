@@ -1,4 +1,4 @@
----
+
 name: Agriculture API | Agrio
 description: >-
   Are you a developer looking to enhance your agriculture-related product or
@@ -35,4 +35,3 @@ maintainers:
 overlays:
   - type: APIs.io Search
     url: overlays/apis-io-search.yml
----
