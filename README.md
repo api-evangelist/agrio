@@ -21,6 +21,7 @@ With our APIs, you can access data on weather patterns, pest and disease predict
 With our APIs, you can access data on weather patterns, pest and disease predictions, and more to build a more accurate crop advisory tool.  
 
 **Human URL:** [https://agrio.app/Agriculture-API/](https://agrio.app/Agriculture-API/)
+r
 
 #### Properties
 
