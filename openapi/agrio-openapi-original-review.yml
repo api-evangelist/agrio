@@ -1,0 +1,1501 @@
+executed: '2025-01-06T01:04:31.504Z'
+results:
+  - code: openapi-external-docs-error
+    message: OpenAPI MUST Have External Documentation
+    path: []
+    severity: 0
+    range:
+      start:
+        line: 0
+        character: 0
+      end:
+        line: 120
+        character: 17
+  - code: openapi-info-contact-error
+    message: Info MUST Have Contact Object
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 6
+        character: 16
+  - code: openapi-info-license-error
+    message: Info MUST Have License
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 6
+        character: 16
+  - code: openapi-info-terms-of-service-error
+    message: Info MUST Have Terms of Service
+    path:
+      - info
+    severity: 0
+    range:
+      start:
+        line: 1
+        character: 5
+      end:
+        line: 6
+        character: 16
+  - code: openapi-info-title-info
+    message: Info Has Title
+    path:
+      - info
+      - title
+    severity: 2
+    range:
+      start:
+        line: 2
+        character: 9
+      end:
+        line: 2
+        character: 14
+  - code: openapi-info-title-upper-case-info
+    message: Info Title MUST Have First Characters Capitalized
+    path:
+      - info
+      - title
+    severity: 2
+    range:
+      start:
+        line: 2
+        character: 9
+      end:
+        line: 2
+        character: 14
+  - code: openapi-info-description-info
+    message: Info Has Description
+    path:
+      - info
+      - description
+    severity: 2
+    range:
+      start:
+        line: 3
+        character: 15
+      end:
+        line: 5
+        character: 72
+  - code: openapi-info-version-info
+    message: Info Has Version
+    path:
+      - info
+      - version
+    severity: 2
+    range:
+      start:
+        line: 6
+        character: 11
+      end:
+        line: 6
+        character: 16
+  - code: openapi-tags-object-info
+    message: OpenAPIs Have a Tag Object
+    path:
+      - tags
+    severity: 2
+    range:
+      start:
+        line: 7
+        character: 5
+      end:
+        line: 13
+        character: 35
+  - code: openapi-tags-name-info
+    message: Tags Have a Name
+    path:
+      - tags
+      - '0'
+      - name
+    severity: 2
+    range:
+      start:
+        line: 8
+        character: 10
+      end:
+        line: 8
+        character: 16
+  - code: openapi-tags-description-info
+    message: Tags Have a Description
+    path:
+      - tags
+      - '0'
+      - description
+    severity: 2
+    range:
+      start:
+        line: 9
+        character: 17
+      end:
+        line: 9
+        character: 30
+  - code: openapi-tags-name-info
+    message: Tags Have a Name
+    path:
+      - tags
+      - '1'
+      - name
+    severity: 2
+    range:
+      start:
+        line: 10
+        character: 10
+      end:
+        line: 10
+        character: 17
+  - code: openapi-tags-description-info
+    message: Tags Have a Description
+    path:
+      - tags
+      - '1'
+      - description
+    severity: 2
+    range:
+      start:
+        line: 11
+        character: 17
+      end:
+        line: 11
+        character: 31
+  - code: openapi-tags-name-info
+    message: Tags Have a Name
+    path:
+      - tags
+      - '2'
+      - name
+    severity: 2
+    range:
+      start:
+        line: 12
+        character: 10
+      end:
+        line: 12
+        character: 15
+  - code: openapi-tags-description-info
+    message: Tags Have a Description
+    path:
+      - tags
+      - '2'
+      - description
+    severity: 2
+    range:
+      start:
+        line: 13
+        character: 17
+      end:
+        line: 13
+        character: 35
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+    path:
+      - paths
+      - /v1/get-credit
+    severity: 0
+    range:
+      start:
+        line: 18
+        character: 17
+      end:
+        line: 30
+        character: 30
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+    path:
+      - paths
+      - /v1/get-credit
+    severity: 2
+    range:
+      start:
+        line: 18
+        character: 17
+      end:
+        line: 30
+        character: 30
+  - code: openapi-version-in-path-error
+    message: Version in Path
+    path:
+      - paths
+      - /v1/get-credit
+    severity: 0
+    range:
+      start:
+        line: 18
+        character: 17
+      end:
+        line: 30
+        character: 30
+  - code: openapi-no-request-body-on-get-info
+    message: GET Request Body
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+    severity: 2
+    range:
+      start:
+        line: 19
+        character: 8
+      end:
+        line: 30
+        character: 30
+  - code: openapi-operation-security-definitions-error
+    message: Operations MUST Have a Security Definition
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+    severity: 0
+    range:
+      start:
+        line: 19
+        character: 8
+      end:
+        line: 30
+        character: 30
+  - code: openapi-operations-summary-info
+    message: Operation Has a Summary
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 20
+        character: 15
+      end:
+        line: 20
+        character: 33
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Has a Period.
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 20
+        character: 15
+      end:
+        line: 20
+        character: 33
+  - code: openapi-operations-description-info
+    message: Operation Has Description
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - description
+    severity: 2
+    range:
+      start:
+        line: 21
+        character: 19
+      end:
+        line: 23
+        character: 63
+  - code: openapi-operations-operation-ids-camel-case-error
+    message: Operation Identifier MUST Be camelCase
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - operationId
+    severity: 0
+    range:
+      start:
+        line: 24
+        character: 19
+      end:
+        line: 24
+        character: 28
+  - code: openapi-operations-operation-ids-camel-case-info
+    message: Operation Identifier Is camelCase
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - operationId
+    severity: 2
+    range:
+      start:
+        line: 24
+        character: 19
+      end:
+        line: 24
+        character: 28
+  - code: openapi-operations-operation-ids-info
+    message: Operation Has Identifier
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - operationId
+    severity: 2
+    range:
+      start:
+        line: 24
+        character: 19
+      end:
+        line: 24
+        character: 28
+  - code: openapi-operations-tags-info
+    message: Operations Has Tags
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - tags
+    severity: 2
+    range:
+      start:
+        line: 25
+        character: 11
+      end:
+        line: 27
+        character: 17
+  - code: openapi-operations-tags-upper-case-info
+    message: Operation Tag Names Have First Letter in Each Word Capitalized
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - tags
+      - '0'
+    severity: 2
+    range:
+      start:
+        line: 26
+        character: 10
+      end:
+        line: 26
+        character: 16
+  - code: openapi-operations-tags-upper-case-info
+    message: Operation Tag Names Have First Letter in Each Word Capitalized
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - tags
+      - '1'
+    severity: 2
+    range:
+      start:
+        line: 27
+        character: 10
+      end:
+        line: 27
+        character: 17
+  - code: openapi-response-get-400-status-code-error
+    message: GET Responses MUST Have 400 Status Codes
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 28
+        character: 16
+      end:
+        line: 30
+        character: 30
+  - code: openapi-response-get-401-status-code-error
+    message: GET Responses Has 401 Status Code
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 28
+        character: 16
+      end:
+        line: 30
+        character: 30
+  - code: openapi-response-get-403-status-code-error
+    message: GET Responses Has 403 Status Code
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 28
+        character: 16
+      end:
+        line: 30
+        character: 30
+  - code: openapi-response-get-429-status-code-error
+    message: GET Responses Has 429 Status Code
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 28
+        character: 16
+      end:
+        line: 30
+        character: 30
+  - code: openapi-response-get-500-status-code-error
+    message: GET Responses MUST Have 500 Status Code
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 28
+        character: 16
+      end:
+        line: 30
+        character: 30
+  - code: openapi-response-get-200-content-error
+    message: GET 200 Response MUST Have Content.
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - responses
+      - '200'
+    severity: 0
+    range:
+      start:
+        line: 29
+        character: 14
+      end:
+        line: 30
+        character: 30
+  - code: openapi-response-get-200-status-code-info
+    message: GET Responses Has 200 Status Codes
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - responses
+      - '200'
+    severity: 2
+    range:
+      start:
+        line: 29
+        character: 14
+      end:
+        line: 30
+        character: 30
+  - code: openapi-response-get-200-description-info
+    message: GET 200 Response has description.
+    path:
+      - paths
+      - /v1/get-credit
+      - get
+      - responses
+      - '200'
+      - description
+    severity: 2
+    range:
+      start:
+        line: 30
+        character: 23
+      end:
+        line: 30
+        character: 30
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+    path:
+      - paths
+      - /v1/get-supported-crops
+    severity: 0
+    range:
+      start:
+        line: 31
+        character: 26
+      end:
+        line: 42
+        character: 30
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+    path:
+      - paths
+      - /v1/get-supported-crops
+    severity: 2
+    range:
+      start:
+        line: 31
+        character: 26
+      end:
+        line: 42
+        character: 30
+  - code: openapi-version-in-path-error
+    message: Version in Path
+    path:
+      - paths
+      - /v1/get-supported-crops
+    severity: 0
+    range:
+      start:
+        line: 31
+        character: 26
+      end:
+        line: 42
+        character: 30
+  - code: openapi-no-request-body-on-get-info
+    message: GET Request Body
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+    severity: 2
+    range:
+      start:
+        line: 32
+        character: 8
+      end:
+        line: 42
+        character: 30
+  - code: openapi-operation-security-definitions-error
+    message: Operations MUST Have a Security Definition
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+    severity: 0
+    range:
+      start:
+        line: 32
+        character: 8
+      end:
+        line: 42
+        character: 30
+  - code: openapi-operations-summary-info
+    message: Operation Has a Summary
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 33
+        character: 15
+      end:
+        line: 33
+        character: 34
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Has a Period.
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 33
+        character: 15
+      end:
+        line: 33
+        character: 34
+  - code: openapi-operations-description-info
+    message: Operation Has Description
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - description
+    severity: 2
+    range:
+      start:
+        line: 34
+        character: 19
+      end:
+        line: 36
+        character: 17
+  - code: openapi-operations-operation-ids-camel-case-error
+    message: Operation Identifier MUST Be camelCase
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - operationId
+    severity: 0
+    range:
+      start:
+        line: 37
+        character: 19
+      end:
+        line: 37
+        character: 36
+  - code: openapi-operations-operation-ids-camel-case-info
+    message: Operation Identifier Is camelCase
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - operationId
+    severity: 2
+    range:
+      start:
+        line: 37
+        character: 19
+      end:
+        line: 37
+        character: 36
+  - code: openapi-operations-operation-ids-info
+    message: Operation Has Identifier
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - operationId
+    severity: 2
+    range:
+      start:
+        line: 37
+        character: 19
+      end:
+        line: 37
+        character: 36
+  - code: openapi-operations-tags-info
+    message: Operations Has Tags
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - tags
+    severity: 2
+    range:
+      start:
+        line: 38
+        character: 11
+      end:
+        line: 39
+        character: 15
+  - code: openapi-operations-tags-upper-case-info
+    message: Operation Tag Names Have First Letter in Each Word Capitalized
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - tags
+      - '0'
+    severity: 2
+    range:
+      start:
+        line: 39
+        character: 10
+      end:
+        line: 39
+        character: 15
+  - code: openapi-response-get-400-status-code-error
+    message: GET Responses MUST Have 400 Status Codes
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 40
+        character: 16
+      end:
+        line: 42
+        character: 30
+  - code: openapi-response-get-401-status-code-error
+    message: GET Responses Has 401 Status Code
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 40
+        character: 16
+      end:
+        line: 42
+        character: 30
+  - code: openapi-response-get-403-status-code-error
+    message: GET Responses Has 403 Status Code
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 40
+        character: 16
+      end:
+        line: 42
+        character: 30
+  - code: openapi-response-get-429-status-code-error
+    message: GET Responses Has 429 Status Code
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 40
+        character: 16
+      end:
+        line: 42
+        character: 30
+  - code: openapi-response-get-500-status-code-error
+    message: GET Responses MUST Have 500 Status Code
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 40
+        character: 16
+      end:
+        line: 42
+        character: 30
+  - code: openapi-response-get-200-content-error
+    message: GET 200 Response MUST Have Content.
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - responses
+      - '200'
+    severity: 0
+    range:
+      start:
+        line: 41
+        character: 14
+      end:
+        line: 42
+        character: 30
+  - code: openapi-response-get-200-status-code-info
+    message: GET Responses Has 200 Status Codes
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - responses
+      - '200'
+    severity: 2
+    range:
+      start:
+        line: 41
+        character: 14
+      end:
+        line: 42
+        character: 30
+  - code: openapi-response-get-200-description-info
+    message: GET 200 Response has description.
+    path:
+      - paths
+      - /v1/get-supported-crops
+      - get
+      - responses
+      - '200'
+      - description
+    severity: 2
+    range:
+      start:
+        line: 42
+        character: 23
+      end:
+        line: 42
+        character: 30
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+    path:
+      - paths
+      - /v1/diagnose
+    severity: 0
+    range:
+      start:
+        line: 43
+        character: 15
+      end:
+        line: 59
+        character: 54
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+    path:
+      - paths
+      - /v1/diagnose
+    severity: 2
+    range:
+      start:
+        line: 43
+        character: 15
+      end:
+        line: 59
+        character: 54
+  - code: openapi-version-in-path-error
+    message: Version in Path
+    path:
+      - paths
+      - /v1/diagnose
+    severity: 0
+    range:
+      start:
+        line: 43
+        character: 15
+      end:
+        line: 59
+        character: 54
+  - code: openapi-operation-security-definitions-error
+    message: Operations MUST Have a Security Definition
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+    severity: 0
+    range:
+      start:
+        line: 44
+        character: 9
+      end:
+        line: 59
+        character: 54
+  - code: openapi-request-body-on-post-error
+    message: POST Requests MUST Have a Body
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+    severity: 0
+    range:
+      start:
+        line: 44
+        character: 9
+      end:
+        line: 59
+        character: 54
+  - code: openapi-operations-summary-info
+    message: Operation Has a Summary
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 45
+        character: 15
+      end:
+        line: 45
+        character: 28
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Has a Period.
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - summary
+    severity: 2
+    range:
+      start:
+        line: 45
+        character: 15
+      end:
+        line: 45
+        character: 28
+  - code: openapi-operations-description-info
+    message: Operation Has Description
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - description
+    severity: 2
+    range:
+      start:
+        line: 46
+        character: 19
+      end:
+        line: 48
+        character: 55
+  - code: openapi-operations-operation-ids-camel-case-error
+    message: Operation Identifier MUST Be camelCase
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - operationId
+    severity: 0
+    range:
+      start:
+        line: 49
+        character: 19
+      end:
+        line: 49
+        character: 31
+  - code: openapi-operations-operation-ids-camel-case-info
+    message: Operation Identifier Is camelCase
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - operationId
+    severity: 2
+    range:
+      start:
+        line: 49
+        character: 19
+      end:
+        line: 49
+        character: 31
+  - code: openapi-operations-operation-ids-info
+    message: Operation Has Identifier
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - operationId
+    severity: 2
+    range:
+      start:
+        line: 49
+        character: 19
+      end:
+        line: 49
+        character: 31
+  - code: openapi-operations-tags-info
+    message: Operations Has Tags
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - tags
+    severity: 2
+    range:
+      start:
+        line: 50
+        character: 11
+      end:
+        line: 52
+        character: 19
+  - code: openapi-operations-tags-upper-case-info
+    message: Operation Tag Names Have First Letter in Each Word Capitalized
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - tags
+      - '0'
+    severity: 2
+    range:
+      start:
+        line: 51
+        character: 10
+      end:
+        line: 51
+        character: 18
+  - code: openapi-operations-tags-upper-case-info
+    message: Operation Tag Names Have First Letter in Each Word Capitalized
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - tags
+      - '1'
+    severity: 2
+    range:
+      start:
+        line: 52
+        character: 10
+      end:
+        line: 52
+        character: 19
+  - code: openapi-response-post-201-status-code-error
+    message: POST Responses MUST Have 201 Status Codes
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 53
+        character: 16
+      end:
+        line: 59
+        character: 54
+  - code: openapi-response-post-400-status-code-error
+    message: POST Responses Has 400 Status Codes
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 53
+        character: 16
+      end:
+        line: 59
+        character: 54
+  - code: openapi-response-post-401-status-code-error
+    message: POST Responses Has 401 Status Codes
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 53
+        character: 16
+      end:
+        line: 59
+        character: 54
+  - code: openapi-response-post-403-status-code-error
+    message: POST Responses Has 403 Status Codes
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 53
+        character: 16
+      end:
+        line: 59
+        character: 54
+  - code: openapi-response-post-404-status-code-error
+    message: POST Responses Has 404 Status Codes
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 53
+        character: 16
+      end:
+        line: 59
+        character: 54
+  - code: openapi-response-post-429-status-code-error
+    message: POST Responses MUST Have 429 Status Codes
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 53
+        character: 16
+      end:
+        line: 59
+        character: 54
+  - code: openapi-response-post-500-status-code-error
+    message: POST Responses MUST Have 500 Status Codes
+    path:
+      - paths
+      - /v1/diagnose
+      - post
+      - responses
+    severity: 0
+    range:
+      start:
+        line: 53
+        character: 16
+      end:
+        line: 59
+        character: 54
+  - code: openapi-components-examples-error
+    message: Components MUST Have a Examples Property
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 60
+        character: 11
+      end:
+        line: 120
+        character: 17
+  - code: openapi-components-headers-error
+    message: Components MUST Have a Headers Property
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 60
+        character: 11
+      end:
+        line: 120
+        character: 17
+  - code: openapi-components-parameters-error
+    message: Components MUST Have a Parameters Property
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 60
+        character: 11
+      end:
+        line: 120
+        character: 17
+  - code: openapi-components-responses-error
+    message: Components MUST have a responses property.
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 60
+        character: 11
+      end:
+        line: 120
+        character: 17
+  - code: openapi-security-schemes-error
+    message: Components MUST Have a Security Schemes
+    path:
+      - components
+    severity: 0
+    range:
+      start:
+        line: 60
+        character: 11
+      end:
+        line: 120
+        character: 17
+  - code: openapi-components-schemas-info
+    message: Components Have a Schema Property
+    path:
+      - components
+      - schemas
+    severity: 2
+    range:
+      start:
+        line: 61
+        character: 10
+      end:
+        line: 120
+        character: 17
+  - code: openapi-schema-description-error
+    message: Schema MUST Have a Description.
+    path:
+      - components
+      - schemas
+      - Diagnosis
+    severity: 0
+    range:
+      start:
+        line: 62
+        character: 14
+      end:
+        line: 120
+        character: 17
+  - code: openapi-schema-names-pascal-case-info
+    message: Schema Names Are PascalCase.
+    path:
+      - components
+      - schemas
+      - Diagnosis
+    severity: 2
+    range:
+      start:
+        line: 62
+        character: 14
+      end:
+        line: 120
+        character: 17
+  - code: openapi-schema-type-info
+    message: Schema Has Type Property
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - type
+    severity: 2
+    range:
+      start:
+        line: 63
+        character: 12
+      end:
+        line: 63
+        character: 18
+  - code: openapi-schema-properties-info
+    message: Schema Have Properties
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+    severity: 2
+    range:
+      start:
+        line: 64
+        character: 17
+      end:
+        line: 116
+        character: 32
+  - code: openapi-schema-properties-descriptions-error
+    message: Schema Properties MUST Have Description
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - crop
+    severity: 0
+    range:
+      start:
+        line: 65
+        character: 13
+      end:
+        line: 66
+        character: 22
+  - code: openapi-schema-properties-names-camel-case-info
+    message: Schema Property Names Are camelCase.
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - crop
+    severity: 2
+    range:
+      start:
+        line: 65
+        character: 13
+      end:
+        line: 66
+        character: 22
+  - code: openapi-schema-properties-string-maxlength-error
+    message: Schema String Properties MUST Have Maximum Length
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - crop
+    severity: 0
+    range:
+      start:
+        line: 65
+        character: 13
+      end:
+        line: 66
+        character: 22
+  - code: openapi-schema-properties-string-minlength-error
+    message: Schema String Properties MUST Have Minimum Length
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - crop
+    severity: 0
+    range:
+      start:
+        line: 65
+        character: 13
+      end:
+        line: 66
+        character: 22
+  - code: openapi-schema-properties-descriptions-error
+    message: Schema Properties MUST Have Description
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - cropConfidence
+    severity: 0
+    range:
+      start:
+        line: 67
+        character: 23
+      end:
+        line: 68
+        character: 22
+  - code: openapi-schema-properties-names-camel-case-info
+    message: Schema Property Names Are camelCase.
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - cropConfidence
+    severity: 2
+    range:
+      start:
+        line: 67
+        character: 23
+      end:
+        line: 68
+        character: 22
+  - code: openapi-schema-properties-string-maxlength-error
+    message: Schema String Properties MUST Have Maximum Length
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - cropConfidence
+    severity: 0
+    range:
+      start:
+        line: 67
+        character: 23
+      end:
+        line: 68
+        character: 22
+  - code: openapi-schema-properties-string-minlength-error
+    message: Schema String Properties MUST Have Minimum Length
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - cropConfidence
+    severity: 0
+    range:
+      start:
+        line: 67
+        character: 23
+      end:
+        line: 68
+        character: 22
+  - code: openapi-schema-properties-array-maxitems-error
+    message: Schema Array Properties MUST Have Max Items
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - idArray
+    severity: 0
+    range:
+      start:
+        line: 69
+        character: 16
+      end:
+        line: 116
+        character: 32
+  - code: openapi-schema-properties-array-maxitems-info
+    message: Schema Array Properties Have Max Items
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - idArray
+    severity: 2
+    range:
+      start:
+        line: 69
+        character: 16
+      end:
+        line: 116
+        character: 32
+  - code: openapi-schema-properties-array-minitems-error
+    message: Schema Array Properties MUST Have Min Items
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - idArray
+    severity: 0
+    range:
+      start:
+        line: 69
+        character: 16
+      end:
+        line: 116
+        character: 32
+  - code: openapi-schema-properties-names-camel-case-info
+    message: Schema Property Names Are camelCase.
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - idArray
+    severity: 2
+    range:
+      start:
+        line: 69
+        character: 16
+      end:
+        line: 116
+        character: 32
+  - code: openapi-schema-properties-array-items-info
+    message: Schema Array Properties Has Items
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - properties
+      - idArray
+      - items
+    severity: 2
+    range:
+      start:
+        line: 71
+        character: 16
+      end:
+        line: 116
+        character: 32
+  - code: openapi-schema-required-info
+    message: Schema Has Required Property
+    path:
+      - components
+      - schemas
+      - Diagnosis
+      - required
+    severity: 2
+    range:
+      start:
+        line: 117
+        character: 15
+      end:
+        line: 120
+        character: 17
