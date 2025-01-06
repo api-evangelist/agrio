@@ -13,7 +13,7 @@ With our APIs, you can access data on weather patterns, pest and disease predict
 ## Timestamps
 
 - **Created:** 2024-07-11 
-- **Modified:** 2024-11-10 
+- **Modified:** 2025-01-05 
 
 ## APIs
 
@@ -23,11 +23,14 @@ With our APIs, you can access data on weather patterns, pest and disease predict
 **Human URL:** [https://agrio.app/Agriculture-API/](https://agrio.app/Agriculture-API/)
 
 
+#### Tags:
+
+ - Credit, Balance, Crops, Diagnose, Diagnosis
 
 #### Properties
 
 - [Documentation](https://agrio.app/Agriculture-API/)
-- [OpenAPI](openapi/agrio-openapi-original.yml)
+- [OpenAPI](properties/agrio-openapi.yml)
 
 ## Maintainers
 
