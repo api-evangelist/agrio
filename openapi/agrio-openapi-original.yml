@@ -1,30 +1,27 @@
 openapi: 3.1.0
 info:
-  title: Agrio API
-  description: |
-    Our agricultural app notifies subscribers after crop diseases and pests are detected and expected to arrive on fields. The alerts come with written preventative measures to aid in impeding infestations.
+  title: Agrio
+  description: >-
+    With our APIs, you can access data on weather patterns, pest and disease
+    predictions, and more to build a more accurate crop advisory tool.  
   version: 1.0.0
 tags:
-
   - name: Credit
     description: Usage credit.
-
   - name: Balance
-    description: Usage balance.   
-
+    description: Usage balance.
   - name: Crops
-    description: Agriculture crops.         
-
+    description: Agriculture crops.
 servers:
   - url: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
     description: Production server.
-
 paths:
-
   /v1/get-credit:
     get:
       summary: Get Credit Balance
-      description: This endpoint allows a user to check their current credit balance. The user can access this endpoint by sending a GET request. 
+      description: >-
+        This endpoint allows a user to check their current credit balance. The
+        user can access this endpoint by sending a GET request.
       operationId: getCredit
       tags:
         - Credit
@@ -32,25 +29,27 @@ paths:
       responses:
         '200':
           description: Success
-
   /v1/get-supported-crops:
     get:
       summary: Get Supported Crops
-      description: This endpoint returns a list of all the crops that the diagnosis service supports.
+      description: >-
+        This endpoint returns a list of all the crops that the diagnosis service
+        supports.
       operationId: getSupportedCrops
       tags:
         - Crops
       responses:
         '200':
           description: Success
-
   /v1/diagnose:
     post:
       summary: Get Diagnosis
-      description: his endpoint allows a user to upload an image of a plant and receive a diagnosis of any diseases present in the plant.
+      description: >-
+        his endpoint allows a user to upload an image of a plant and receive a
+        diagnosis of any diseases present in the plant.
       operationId: getDiagnosis
       tags:
-        - Crops
+        - Diagnose
         - Diagnosis
       responses:
         '200':
@@ -58,8 +57,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Diagnosis'                
-
+                $ref: '#/components/schemas/Diagnosis'
 components:
   schemas:
     Diagnosis:
@@ -72,52 +70,52 @@ components:
         idArray:
           type: array
           items:
-          - type: object
-            properties:
-              id:
-                type: string
-              confidence:
-                type: number
-              commonName:
-                type: string
-              scientificName:
-                type: string
-            required:
-            - id
-            - confidence
-            - commonName
-            - scientificName
-          - type: object
-            properties:
-              id:
-                type: string
-              confidence:
-                type: number
-              commonName:
-                type: string
-              scientificName:
-                type: string
-            required:
-            - id
-            - confidence
-            - commonName
-            - scientificName
-          - type: object
-            properties:
-              id:
-                type: string
-              confidence:
-                type: number
-              commonName:
-                type: string
-              scientificName:
-                type: string
-            required:
-            - id
-            - confidence
-            - commonName
-            - scientificName
+            - type: object
+              properties:
+                id:
+                  type: string
+                confidence:
+                  type: number
+                commonName:
+                  type: string
+                scientificName:
+                  type: string
+              required:
+                - id
+                - confidence
+                - commonName
+                - scientificName
+            - type: object
+              properties:
+                id:
+                  type: string
+                confidence:
+                  type: number
+                commonName:
+                  type: string
+                scientificName:
+                  type: string
+              required:
+                - id
+                - confidence
+                - commonName
+                - scientificName
+            - type: object
+              properties:
+                id:
+                  type: string
+                confidence:
+                  type: number
+                commonName:
+                  type: string
+                scientificName:
+                  type: string
+              required:
+                - id
+                - confidence
+                - commonName
+                - scientificName
       required:
-      - crop
-      - cropConfidence
-      - idArray
+        - crop
+        - cropConfidence
+        - idArray
