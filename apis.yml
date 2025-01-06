@@ -7,11 +7,17 @@ apis:
     properties:
       - url: https://agrio.app/Agriculture-API/
         type: Documentation
-      - url: openapi/agrio-openapi-original.yml
+      - url: properties/agrio-openapi.yml
         type: OpenAPI
     description: >-
       With our APIs, you can access data on weather patterns, pest and disease
       predictions, and more to build a more accurate crop advisory tool.  
+    tags:
+      - Credit
+      - Balance
+      - Crops
+      - Diagnose
+      - Diagnosis
 name: Agrio
 aid: agrio
 tags:
