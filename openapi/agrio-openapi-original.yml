@@ -18,7 +18,7 @@ servers:
 paths:
   /v1/get-credit:
     get:
-      summary: Get Credit Balance
+      summary: Agrio Get Credit Balance
       description: >-
         This endpoint allows a user to check their current credit balance. The
         user can access this endpoint by sending a GET request.
@@ -31,7 +31,7 @@ paths:
           description: Success
   /v1/get-supported-crops:
     get:
-      summary: Get Supported Crops
+      summary: Agrio Get Supported Crops
       description: >-
         This endpoint returns a list of all the crops that the diagnosis service
         supports.
@@ -43,7 +43,7 @@ paths:
           description: Success
   /v1/diagnose:
     post:
-      summary: Get Diagnosis
+      summary: Agrio Get Diagnosis
       description: >-
         his endpoint allows a user to upload an image of a plant and receive a
         diagnosis of any diseases present in the plant.
