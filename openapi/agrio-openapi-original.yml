@@ -6,12 +6,14 @@ info:
     predictions, and more to build a more accurate crop advisory tool.  
   version: 1.0.0
 tags:
-  - name: Credit
-    description: Usage credit.
   - name: Balance
     description: Usage balance.
+  - name: Credit
+    description: Usage credit.
   - name: Crops
     description: Agriculture crops.
+  - name: Diagnose
+  - name: Diagnosis
 servers:
   - url: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
     description: Production server.
@@ -24,8 +26,8 @@ paths:
         user can access this endpoint by sending a GET request.
       operationId: getCredit
       tags:
-        - Credit
         - Balance
+        - Credit
       responses:
         '200':
           description: Success
