@@ -1,0 +1,82 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "agrio": "https://agrio.app/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Credit Balance": "agrio:Credit Balance",
+    "balance": {
+      "@id": "agrio:balance",
+      "@type": "xsd:integer"
+    },
+    "currency": {
+      "@id": "agrio:currency",
+      "@type": "xsd:string"
+    },
+    "accountId": {
+      "@id": "agrio:account_id",
+      "@type": "xsd:string"
+    },
+    "Diagnose Request": "agrio:Diagnose Request",
+    "cropId": {
+      "@id": "agrio:crop_id",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "agrio:image",
+      "@type": "xsd:string"
+    },
+    "Diagnosis Result": "agrio:Diagnosis Result",
+    "id": {
+      "@id": "agrio:id",
+      "@type": "xsd:string"
+    },
+    "confidence": {
+      "@id": "agrio:confidence",
+      "@type": "xsd:double"
+    },
+    "commonName": {
+      "@id": "agrio:commonName",
+      "@type": "xsd:string"
+    },
+    "scientificName": {
+      "@id": "agrio:scientificName",
+      "@type": "xsd:string"
+    },
+    "Diagnosis": "agrio:Diagnosis",
+    "crop": {
+      "@id": "agrio:crop",
+      "@type": "xsd:string"
+    },
+    "cropConfidence": {
+      "@id": "agrio:cropConfidence",
+      "@type": "xsd:string"
+    },
+    "idArray": {
+      "@id": "agrio:idArray",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Crop": "agrio:Crop",
+    "Supported Crops Response": "agrio:Supported Crops Response",
+    "crops": {
+      "@id": "agrio:crops",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Error Response": "agrio:Error Response",
+    "error": {
+      "@id": "agrio:error",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "agrio:message",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "agrio:status",
+      "@type": "xsd:integer"
+    }
+  }
+}

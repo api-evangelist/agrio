@@ -1,0 +1,108 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Agrio Crop Protection
+  description: >-
+    Unified crop protection capability combining Agrio's AI-powered plant disease
+    diagnosis, pest detection, and crop advisory services. Used by agronomists,
+    crop advisors, and precision agriculture platforms to identify plant health
+    issues and recommend treatments.
+  tags:
+    - Agrio
+    - Agriculture
+    - Plant Disease
+    - Crop Protection
+    - AI Diagnosis
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AGRIO_API_KEY: AGRIO_API_KEY
+
+capability:
+  consumes:
+    - import: agrio
+      location: ./shared/agrio-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: crop-protection-api
+      description: Unified REST API for AI-powered crop protection and plant disease diagnosis.
+      resources:
+        - path: /v1/credit
+          name: credit
+          description: Account credit management.
+          operations:
+            - method: GET
+              name: get-credit
+              description: Get current credit balance.
+              call: "agrio.get-credit"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/crops
+          name: crops
+          description: Supported crop catalog.
+          operations:
+            - method: GET
+              name: list-crops
+              description: List all supported crop types.
+              call: "agrio.get-supported-crops"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/diagnose
+          name: diagnose
+          description: Plant health diagnosis.
+          operations:
+            - method: POST
+              name: diagnose
+              description: Diagnose plant diseases and pests from an uploaded image.
+              call: "agrio.diagnose-plant"
+              with:
+                crop_id: "rest.crop_id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: crop-protection-mcp
+      transport: http
+      description: MCP server for AI-assisted crop protection and plant disease diagnosis.
+      tools:
+        - name: check-credit-balance
+          description: Check remaining API credits for plant diagnosis requests.
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "agrio.get-credit"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-supported-crops
+          description: List all crop types supported by Agrio's AI diagnosis service.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "agrio.get-supported-crops"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: diagnose-plant-disease
+          description: >-
+            Submit a plant image for AI-powered diagnosis of diseases, pests, and
+            nutrient deficiencies. Returns ranked diagnoses with confidence scores
+            and scientific names.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "agrio.diagnose-plant"
+          with:
+            crop_id: "tools.crop_id"
+          outputParameters:
+            - type: object
+              mapping: "$."

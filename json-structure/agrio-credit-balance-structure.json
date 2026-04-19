@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agrio/refs/heads/main/json-structure/agrio-credit-balance-structure.json",
+  "name": "Credit Balance",
+  "description": "Current API credit balance for the authenticated account.",
+  "type": "object",
+  "properties": {
+    "balance": {
+      "type": "int32",
+      "description": "Number of available credits remaining.",
+      "example": 450
+    },
+    "currency": {
+      "type": "string",
+      "description": "Credit unit type.",
+      "example": "credits"
+    },
+    "account_id": {
+      "type": "string",
+      "description": "Unique identifier for the API account.",
+      "example": "acc-500123"
+    }
+  },
+  "required": [
+    "balance",
+    "currency"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agrio/refs/heads/main/json-structure/agrio-crop-structure.json",
+  "name": "Crop",
+  "description": "A supported agricultural crop type.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique crop identifier.",
+      "example": "tomato"
+    },
+    "common_name": {
+      "type": "string",
+      "description": "Common name for the crop.",
+      "example": "Tomato"
+    },
+    "scientific_name": {
+      "type": "string",
+      "description": "Scientific name for the crop.",
+      "example": "Solanum lycopersicum"
+    }
+  }
+}

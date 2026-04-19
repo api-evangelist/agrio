@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agrio/refs/heads/main/json-structure/agrio-error-response-structure.json",
+  "name": "Error Response",
+  "description": "Standard error response.",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "string",
+      "description": "Error code or type.",
+      "example": "unauthorized"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable error message.",
+      "example": "Invalid or missing API key."
+    },
+    "status": {
+      "type": "int32",
+      "description": "HTTP status code.",
+      "example": 401
+    }
+  }
+}

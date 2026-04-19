@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agrio/refs/heads/main/json-structure/agrio-diagnose-request-structure.json",
+  "name": "Diagnose Request",
+  "description": "Image and crop context for plant disease diagnosis.",
+  "type": "object",
+  "properties": {
+    "crop_id": {
+      "type": "string",
+      "description": "Crop identifier from the supported crops list.",
+      "example": "tomato"
+    },
+    "image": {
+      "type": "string",
+      "description": "Plant image file for diagnosis (JPEG or PNG)."
+    }
+  },
+  "required": [
+    "crop_id",
+    "image"
+  ]
+}

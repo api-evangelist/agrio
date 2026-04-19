@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agrio/refs/heads/main/json-structure/agrio-supported-crops-response-structure.json",
+  "name": "Supported Crops Response",
+  "description": "List of crop types supported by the Agrio diagnosis service.",
+  "type": "object",
+  "properties": {
+    "crops": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Crop"
+      }
+    }
+  }
+}

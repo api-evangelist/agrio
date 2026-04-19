@@ -1,0 +1,172 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Agrio
+  description: >-
+    Unified vocabulary for the Agrio Agriculture API covering plant disease diagnosis,
+    pest detection, crop advisory, and credit management.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: Agrio Agriculture API
+      namespace: agrio
+      version: "1.0.0"
+      baseUrl: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+      status: active
+
+  resources:
+    - name: credit
+      description: API credit balance and usage monitoring
+      api: agrio
+      actions:
+        - get
+    - name: crops
+      description: Supported agricultural crop types for diagnosis
+      api: agrio
+      actions:
+        - list
+    - name: diagnose
+      description: Plant disease and pest identification from images
+      api: agrio
+      actions:
+        - create
+
+  actions:
+    - name: get
+      description: Retrieve a single resource
+      httpMethod: GET
+      pattern: read
+    - name: list
+      description: Retrieve a collection of resources
+      httpMethod: GET
+      pattern: read
+    - name: create
+      description: Submit data for processing
+      httpMethod: POST
+      pattern: write
+
+  schemas:
+    core:
+      - Diagnosis
+      - DiagnosisResult
+      - Crop
+      - CreditBalance
+    requests:
+      - DiagnoseRequest
+    errors:
+      - ErrorResponse
+
+  parameters:
+    authentication:
+      - name: Authorization
+        description: Bearer token API key
+    body:
+      - name: crop_id
+        description: Crop identifier from the supported crops list
+      - name: image
+        description: Plant image file (JPEG or PNG) for diagnosis
+
+  enums:
+    cropConfidence:
+      - high
+      - medium
+      - low
+
+  authentication:
+    schemes:
+      - name: BearerAuth
+        type: bearer
+        description: API key obtained from pro.agrio.app/image-diagnosis-api
+        apis:
+          - agrio
+
+capability:
+  workflows:
+    - name: Crop Protection
+      file: capabilities/crop-protection.yaml
+      description: AI-powered plant disease diagnosis and crop advisory
+      apis:
+        - Agrio Agriculture API
+      toolCount: 3
+      personas:
+        - Agronomist
+        - Crop Advisor
+        - Precision Agriculture Developer
+
+  personas:
+    - id: agronomist
+      name: Agronomist
+      description: Field specialists diagnosing plant health issues in crops
+      workflows:
+        - Crop Protection
+    - id: crop-advisor
+      name: Crop Advisor
+      description: Agricultural consultants providing plant health recommendations
+      workflows:
+        - Crop Protection
+    - id: precision-ag-developer
+      name: Precision Agriculture Developer
+      description: Developers building crop advisory and farm management applications
+      workflows:
+        - Crop Protection
+
+  domains:
+    - name: Plant Health
+      description: Disease and pest identification from plant images
+      resources:
+        - diagnose
+    - name: Crop Catalog
+      description: Supported crop types for diagnosis
+      resources:
+        - crops
+    - name: Account Management
+      description: Credit balance and API usage monitoring
+      resources:
+        - credit
+
+  namespaces:
+    consumed:
+      - name: agrio
+        type: http
+        baseUri: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+    exposed:
+      - name: crop-protection-api
+        type: rest
+        port: 8080
+      - name: crop-protection-mcp
+        type: mcp
+        port: 9090
+
+  binds:
+    - name: AGRIO_API_KEY
+      description: Agrio API bearer token from pro.agrio.app/image-diagnosis-api
+      workflows:
+        - Crop Protection
+
+crossReference:
+  - resource: diagnose
+    operations:
+      - getDiagnosis
+    workflows:
+      - Crop Protection
+    personas:
+      - Agronomist
+      - Crop Advisor
+      - Precision Agriculture Developer
+  - resource: crops
+    operations:
+      - getSupportedCrops
+    workflows:
+      - Crop Protection
+    personas:
+      - Agronomist
+      - Precision Agriculture Developer
+  - resource: credit
+    operations:
+      - getCredit
+    workflows:
+      - Crop Protection
+    personas:
+      - Precision Agriculture Developer

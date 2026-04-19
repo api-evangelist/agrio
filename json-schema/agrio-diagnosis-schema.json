@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agrio/refs/heads/main/json-schema/agrio-diagnosis-schema.json",
+  "title": "Diagnosis",
+  "description": "Complete plant diagnosis result including crop identification and ranked disease list.",
+  "type": "object",
+  "properties": {
+    "crop": {
+      "type": "string",
+      "description": "Identified or confirmed crop type.",
+      "example": "tomato"
+    },
+    "cropConfidence": {
+      "type": "string",
+      "description": "Confidence level for crop identification (high, medium, low).",
+      "example": "high"
+    },
+    "idArray": {
+      "type": "array",
+      "description": "Ranked list of disease/pest diagnoses sorted by confidence descending.",
+      "items": {
+        "$ref": "#/components/schemas/DiagnosisResult"
+      }
+    }
+  },
+  "required": [
+    "crop",
+    "cropConfidence",
+    "idArray"
+  ]
+}

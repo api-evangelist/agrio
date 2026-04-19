@@ -1,123 +1,341 @@
 openapi: 3.1.0
 info:
-  title: Agrio
+  title: Agrio Agriculture API
   description: >-
-    With our APIs, you can access data on weather patterns, pest and disease
-    predictions, and more to build a more accurate crop advisory tool.  
+    With Agrio APIs, you can access data on weather patterns, pest and disease
+    predictions, image-based plant diagnosis, and satellite vegetation monitoring
+    to build accurate crop advisory tools. Agrio is a precision plant protection
+    solution that helps growers and crop advisors forecast, identify, and treat
+    plant diseases, pests, and nutrient deficiencies.
   version: 1.0.0
-tags:
-  - name: Balance
-    description: Usage balance.
-  - name: Credit
-    description: Usage credit.
-  - name: Crops
-    description: Agriculture crops.
-  - name: Diagnose
-  - name: Diagnosis
+  contact:
+    email: info@saillog.co
+    url: https://agrio.app
+  x-last-validated: '2026-04-19'
 servers:
   - url: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
     description: Production server.
+tags:
+  - name: Balance
+    description: Account credit balance and usage monitoring.
+  - name: Credit
+    description: Credit management for API usage.
+  - name: Crops
+    description: Supported agricultural crop types.
+  - name: Diagnose
+    description: Plant disease and pest diagnosis from images.
+  - name: Diagnosis
+    description: Diagnosis results and disease identification data.
 paths:
   /v1/get-credit:
     get:
       summary: Agrio Get Credit Balance
       description: >-
-        This endpoint allows a user to check their current credit balance. The
-        user can access this endpoint by sending a GET request.
+        Returns the current credit balance for the authenticated API account.
+        Credits are consumed with each diagnosis API call. Use this endpoint
+        to monitor usage and ensure sufficient credit for continued operation.
       operationId: getCredit
       tags:
         - Balance
         - Credit
+      parameters:
+        - name: Authorization
+          in: header
+          description: Bearer token for API authentication.
+          required: true
+          schema:
+            type: string
+            example: Bearer YOUR_API_KEY
       responses:
         '200':
-          description: Success
+          description: Current credit balance for the account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBalance'
+              examples:
+                GetCredit200Example:
+                  summary: Default getCredit 200 response
+                  x-microcks-default: true
+                  value:
+                    balance: 450
+                    currency: credits
+                    account_id: acc-500123
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /v1/get-supported-crops:
     get:
       summary: Agrio Get Supported Crops
       description: >-
-        This endpoint returns a list of all the crops that the diagnosis service
-        supports.
+        Returns a list of all agricultural crop types supported by the Agrio
+        diagnosis service. Use this endpoint to determine which crops can be
+        analyzed with the /v1/diagnose endpoint before submitting images.
       operationId: getSupportedCrops
       tags:
         - Crops
+      parameters:
+        - name: Authorization
+          in: header
+          description: Bearer token for API authentication.
+          required: true
+          schema:
+            type: string
+            example: Bearer YOUR_API_KEY
       responses:
         '200':
-          description: Success
+          description: A list of supported crop types.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportedCropsResponse'
+              examples:
+                GetSupportedCrops200Example:
+                  summary: Default getSupportedCrops 200 response
+                  x-microcks-default: true
+                  value:
+                    crops:
+                      - id: tomato
+                        common_name: Tomato
+                        scientific_name: Solanum lycopersicum
+                      - id: wheat
+                        common_name: Wheat
+                        scientific_name: Triticum aestivum
+                      - id: corn
+                        common_name: Corn
+                        scientific_name: Zea mays
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /v1/diagnose:
     post:
-      summary: Agrio Get Diagnosis
+      summary: Agrio Diagnose Plant
       description: >-
-        his endpoint allows a user to upload an image of a plant and receive a
-        diagnosis of any diseases present in the plant.
+        Analyzes an uploaded plant image using AI computer vision to identify
+        diseases, pests, and nutrient deficiencies. Returns a ranked list of
+        diagnoses with confidence scores, common and scientific names, and
+        treatment recommendations. One credit is consumed per diagnosis request.
       operationId: getDiagnosis
       tags:
         - Diagnose
         - Diagnosis
+      parameters:
+        - name: Authorization
+          in: header
+          description: Bearer token for API authentication.
+          required: true
+          schema:
+            type: string
+            example: Bearer YOUR_API_KEY
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DiagnoseRequest'
+            examples:
+              GetDiagnosisRequestExample:
+                summary: Default getDiagnosis request
+                x-microcks-default: true
+                value:
+                  crop_id: tomato
+                  image: <binary image data>
       responses:
         '200':
-          description: Success
+          description: Diagnosis results with ranked disease/pest identifications.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Diagnosis'
+              examples:
+                GetDiagnosis200Example:
+                  summary: Default getDiagnosis 200 response
+                  x-microcks-default: true
+                  value:
+                    crop: tomato
+                    cropConfidence: high
+                    idArray:
+                      - id: early_blight
+                        confidence: 0.87
+                        commonName: Early Blight
+                        scientificName: Alternaria solani
+                      - id: late_blight
+                        confidence: 0.09
+                        commonName: Late Blight
+                        scientificName: Phytophthora infestans
+                      - id: septoria_leaf_spot
+                        confidence: 0.04
+                        commonName: Septoria Leaf Spot
+                        scientificName: Septoria lycopersici
+        '400':
+          description: Bad request. Invalid image or missing parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '402':
+          description: Insufficient credits. Account balance is zero.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        API key obtained from the Agrio API portal at pro.agrio.app/image-diagnosis-api.
+        Include as a Bearer token in the Authorization header.
   schemas:
+    CreditBalance:
+      type: object
+      title: Credit Balance
+      description: Current API credit balance for the authenticated account.
+      properties:
+        balance:
+          type: integer
+          description: Number of available credits remaining.
+          example: 450
+        currency:
+          type: string
+          description: Credit unit type.
+          example: credits
+        account_id:
+          type: string
+          description: Unique identifier for the API account.
+          example: acc-500123
+      required:
+        - balance
+        - currency
+    DiagnoseRequest:
+      type: object
+      title: Diagnose Request
+      description: Image and crop context for plant disease diagnosis.
+      properties:
+        crop_id:
+          type: string
+          description: Crop identifier from the supported crops list.
+          example: tomato
+        image:
+          type: string
+          format: binary
+          description: Plant image file for diagnosis (JPEG or PNG).
+      required:
+        - crop_id
+        - image
+    DiagnosisResult:
+      type: object
+      title: Diagnosis Result
+      description: A single disease or pest identification result.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the disease or pest.
+          example: early_blight
+        confidence:
+          type: number
+          format: double
+          description: Confidence score for this diagnosis (0.0 to 1.0).
+          example: 0.87
+        commonName:
+          type: string
+          description: Common name of the disease or pest.
+          example: Early Blight
+        scientificName:
+          type: string
+          description: Scientific name of the disease or pest.
+          example: Alternaria solani
+      required:
+        - id
+        - confidence
+        - commonName
+        - scientificName
     Diagnosis:
       type: object
+      title: Diagnosis
+      description: Complete plant diagnosis result including crop identification and ranked disease list.
       properties:
         crop:
           type: string
+          description: Identified or confirmed crop type.
+          example: tomato
         cropConfidence:
           type: string
+          description: Confidence level for crop identification (high, medium, low).
+          example: high
         idArray:
           type: array
+          description: Ranked list of disease/pest diagnoses sorted by confidence descending.
           items:
-            - type: object
-              properties:
-                id:
-                  type: string
-                confidence:
-                  type: number
-                commonName:
-                  type: string
-                scientificName:
-                  type: string
-              required:
-                - id
-                - confidence
-                - commonName
-                - scientificName
-            - type: object
-              properties:
-                id:
-                  type: string
-                confidence:
-                  type: number
-                commonName:
-                  type: string
-                scientificName:
-                  type: string
-              required:
-                - id
-                - confidence
-                - commonName
-                - scientificName
-            - type: object
-              properties:
-                id:
-                  type: string
-                confidence:
-                  type: number
-                commonName:
-                  type: string
-                scientificName:
-                  type: string
-              required:
-                - id
-                - confidence
-                - commonName
-                - scientificName
+            $ref: '#/components/schemas/DiagnosisResult'
       required:
         - crop
         - cropConfidence
         - idArray
+    Crop:
+      type: object
+      title: Crop
+      description: A supported agricultural crop type.
+      properties:
+        id:
+          type: string
+          description: Unique crop identifier.
+          example: tomato
+        common_name:
+          type: string
+          description: Common name for the crop.
+          example: Tomato
+        scientific_name:
+          type: string
+          description: Scientific name for the crop.
+          example: Solanum lycopersicum
+    SupportedCropsResponse:
+      type: object
+      title: Supported Crops Response
+      description: List of crop types supported by the Agrio diagnosis service.
+      properties:
+        crops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Crop'
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Standard error response.
+      properties:
+        error:
+          type: string
+          description: Error code or type.
+          example: unauthorized
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid or missing API key.
+        status:
+          type: integer
+          description: HTTP status code.
+          example: 401
+security:
+  - BearerAuth: []
