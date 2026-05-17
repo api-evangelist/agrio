@@ -54,7 +54,7 @@ apis:
       - type: JSONStructure
         url: json-structure/agrio-crop-structure.json
         title: Crop Structure
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/agrio-context.jsonld
 common:
   - type: Website
