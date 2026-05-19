@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Agrio Agriculture API — Credit
+  description: 'Agrio Agriculture API — Credit. 1 operations. Lead operation: Agrio Get Credit Balance. Self-contained Naftiko
+    capability covering one Agrio business surface.'
+  tags:
+  - Agrio
+  - Credit
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AGRIO_API_KEY: AGRIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: agrio-credit
+    baseUri: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+    description: Agrio Agriculture API — Credit business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-get-credit
+      path: /v1/get-credit
+      operations:
+      - name: getcredit
+        method: GET
+        description: Agrio Get Credit Balance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: Bearer token for API authentication.
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AGRIO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: agrio-credit-rest
+    port: 8080
+    description: REST adapter for Agrio Agriculture API — Credit. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/get-credit
+      name: v1-get-credit
+      description: REST surface for v1-get-credit.
+      operations:
+      - method: GET
+        name: getcredit
+        description: Agrio Get Credit Balance
+        call: agrio-credit.getcredit
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: agrio-credit-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Agrio Agriculture API — Credit. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: agrio-get-credit-balance
+      description: Agrio Get Credit Balance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agrio-credit.getcredit
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

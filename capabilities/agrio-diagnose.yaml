@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Agrio Agriculture API — Diagnose
+  description: 'Agrio Agriculture API — Diagnose. 1 operations. Lead operation: Agrio Diagnose Plant. Self-contained Naftiko
+    capability covering one Agrio business surface.'
+  tags:
+  - Agrio
+  - Diagnose
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AGRIO_API_KEY: AGRIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: agrio-diagnose
+    baseUri: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+    description: Agrio Agriculture API — Diagnose business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-diagnose
+      path: /v1/diagnose
+      operations:
+      - name: getdiagnosis
+        method: POST
+        description: Agrio Diagnose Plant
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: Bearer token for API authentication.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.AGRIO_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: agrio-diagnose-rest
+    port: 8080
+    description: REST adapter for Agrio Agriculture API — Diagnose. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/diagnose
+      name: v1-diagnose
+      description: REST surface for v1-diagnose.
+      operations:
+      - method: POST
+        name: getdiagnosis
+        description: Agrio Diagnose Plant
+        call: agrio-diagnose.getdiagnosis
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: agrio-diagnose-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Agrio Agriculture API — Diagnose. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: agrio-diagnose-plant
+      description: Agrio Diagnose Plant
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: agrio-diagnose.getdiagnosis
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
