@@ -50,15 +50,15 @@ apis:
     title: Crop Structure
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/agrio-balance.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/agrio-credit.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/agrio-crops.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/agrio-diagnose.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/agrio-diagnosis.yaml
 common:
 - type: LinkedIn
