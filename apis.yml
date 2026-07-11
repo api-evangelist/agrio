@@ -61,6 +61,12 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/agrio-diagnosis.yaml
 common:
+- type: DomainSecurity
+  url: security/agrio-domain-security.yml
+- type: Authentication
+  url: authentication/agrio-authentication.yml
+- url: https://agrio.app/feed/
+  type: Blog
 - type: LinkedIn
   url: https://www.linkedin.com/company/agrio-app
 - type: Website
