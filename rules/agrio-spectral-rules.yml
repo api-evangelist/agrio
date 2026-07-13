@@ -1,5 +1,22 @@
+# agrio — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - servers-expected-domain: 1/1 servers on gateway.dev
+#   - operationid-casing: camel @ 100% (n=3)
+#   - schema-names-casing: pascal @ 100% (n=7)
+#   - schema-properties-casing: snake @ 79% (n=19)
+#   - security: global (root) — NOT emitting operation-security-required
+#   - error-schema-defined: ErrorResponse
+#   - operation-documents-401: 100% adherence
+#   - merge: kept 21 existing, added 5 measured, upgraded 0
+#   - added: servers-expected-domain, operationid-casing, schema-names-casing, schema-properties-casing, error-schema-defined
+extends:
+  - spectral:oas
 rules:
-  # INFO / METADATA
   info-title-required:
     description: OpenAPI info must have a title.
     severity: error
@@ -7,7 +24,6 @@ rules:
     then:
       field: title
       function: truthy
-
   info-title-prefix:
     description: API title should start with "Agrio".
     severity: warn
@@ -15,8 +31,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^Agrio"
-
+        match: ^Agrio
   info-description-required:
     description: OpenAPI info must have a description.
     severity: warn
@@ -24,7 +39,6 @@ rules:
     then:
       field: description
       function: truthy
-
   info-version-required:
     description: OpenAPI info must have a version.
     severity: error
@@ -32,8 +46,6 @@ rules:
     then:
       field: version
       function: truthy
-
-  # SERVERS
   servers-defined:
     description: At least one server must be defined.
     severity: error
@@ -41,7 +53,6 @@ rules:
     then:
       field: servers
       function: truthy
-
   servers-https-required:
     description: Server URLs must use HTTPS.
     severity: error
@@ -49,9 +60,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^https://"
-
-  # PATHS
+        match: ^https://
   paths-kebab-case:
     description: Path segments should use kebab-case.
     severity: warn
@@ -59,8 +68,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^(/[a-z0-9_{}\\-]+)+$"
-
+        match: ^(/[a-z0-9_{}\-]+)+$
   paths-versioned:
     description: Paths should include a version prefix (e.g., /v1/).
     severity: info
@@ -68,9 +76,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^/v[0-9]/"
-
-  # OPERATIONS
+        match: ^/v[0-9]/
   operation-summary-required:
     description: Every operation must have a summary.
     severity: error
@@ -78,7 +84,6 @@ rules:
     then:
       field: summary
       function: truthy
-
   operation-summary-prefix:
     description: Operation summaries should start with "Agrio".
     severity: warn
@@ -86,8 +91,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^Agrio"
-
+        match: ^Agrio
   operation-description-required:
     description: Every operation must have a description.
     severity: warn
@@ -95,7 +99,6 @@ rules:
     then:
       field: description
       function: truthy
-
   operation-id-required:
     description: Every operation must have an operationId.
     severity: error
@@ -103,7 +106,6 @@ rules:
     then:
       field: operationId
       function: truthy
-
   operation-tags-required:
     description: Every operation must have at least one tag.
     severity: warn
@@ -111,23 +113,19 @@ rules:
     then:
       field: tags
       function: truthy
-
-  # RESPONSES
   response-success-required:
     description: Every operation must define at least one 2xx response.
     severity: error
     given: $.paths[*][get,post,put,patch,delete].responses
     then:
       function: truthy
-
   response-401-defined:
     description: Protected operations should define a 401 response.
     severity: warn
     given: $.paths[*][get,post,put,patch,delete].responses
     then:
-      field: "401"
+      field: '401'
       function: truthy
-
   response-description-required:
     description: Every response must have a description.
     severity: warn
@@ -135,8 +133,6 @@ rules:
     then:
       field: description
       function: truthy
-
-  # SCHEMAS
   schema-description-required:
     description: Top-level component schemas should have a description.
     severity: warn
@@ -144,8 +140,6 @@ rules:
     then:
       field: description
       function: truthy
-
-  # SECURITY
   security-schemes-defined:
     description: Security schemes must be defined.
     severity: error
@@ -153,7 +147,6 @@ rules:
     then:
       field: securitySchemes
       function: truthy
-
   security-bearer-used:
     description: APIs should use Bearer token authentication.
     severity: warn
@@ -161,8 +154,6 @@ rules:
     then:
       field: scheme
       function: truthy
-
-  # HTTP METHOD CONVENTIONS
   get-no-request-body:
     description: GET operations must not have a request body.
     severity: error
@@ -170,11 +161,50 @@ rules:
     then:
       field: requestBody
       function: falsy
-
-  # QUALITY
   no-empty-descriptions:
     description: Descriptions must not be empty strings.
     severity: warn
     given: $..description
     then:
+      function: truthy
+  servers-expected-domain:
+    description: Server URLs should be on the gateway.dev domain.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: gateway\.dev
+  operationid-casing:
+    description: Operation IDs should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be snake_case (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
+  error-schema-defined:
+    description: A shared error schema (ErrorResponse) should be defined for error payloads.
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: ErrorResponse
       function: truthy
