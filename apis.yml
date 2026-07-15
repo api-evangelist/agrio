@@ -61,6 +61,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/agrio-diagnosis.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/agrio-agentic-access.yml
 - type: DomainSecurity
   url: security/agrio-domain-security.yml
 - type: Authentication
