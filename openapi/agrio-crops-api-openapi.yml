@@ -1,0 +1,114 @@
+openapi: 3.1.0
+info:
+  title: Agrio Agriculture Balance Crops API
+  description: With Agrio APIs, you can access data on weather patterns, pest and disease predictions, image-based plant diagnosis, and satellite vegetation monitoring to build accurate crop advisory tools. Agrio is a precision plant protection solution that helps growers and crop advisors forecast, identify, and treat plant diseases, pests, and nutrient deficiencies.
+  version: 1.0.0
+  contact:
+    email: info@saillog.co
+    url: https://agrio.app
+  x-last-validated: '2026-04-19'
+servers:
+- url: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+  description: Production server.
+security:
+- BearerAuth: []
+tags:
+- name: Crops
+  description: Supported agricultural crop types.
+paths:
+  /v1/get-supported-crops:
+    get:
+      summary: Agrio Get Supported Crops
+      description: Returns a list of all agricultural crop types supported by the Agrio diagnosis service. Use this endpoint to determine which crops can be analyzed with the /v1/diagnose endpoint before submitting images.
+      operationId: getSupportedCrops
+      tags:
+      - Crops
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token for API authentication.
+        required: true
+        schema:
+          type: string
+          example: Bearer YOUR_API_KEY
+      responses:
+        '200':
+          description: A list of supported crop types.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SupportedCropsResponse'
+              examples:
+                GetSupportedCrops200Example:
+                  summary: Default getSupportedCrops 200 response
+                  x-microcks-default: true
+                  value:
+                    crops:
+                    - id: tomato
+                      common_name: Tomato
+                      scientific_name: Solanum lycopersicum
+                    - id: wheat
+                      common_name: Wheat
+                      scientific_name: Triticum aestivum
+                    - id: corn
+                      common_name: Corn
+                      scientific_name: Zea mays
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    SupportedCropsResponse:
+      type: object
+      title: Supported Crops Response
+      description: List of crop types supported by the Agrio diagnosis service.
+      properties:
+        crops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Crop'
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Standard error response.
+      properties:
+        error:
+          type: string
+          description: Error code or type.
+          example: unauthorized
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid or missing API key.
+        status:
+          type: integer
+          description: HTTP status code.
+          example: 401
+    Crop:
+      type: object
+      title: Crop
+      description: A supported agricultural crop type.
+      properties:
+        id:
+          type: string
+          description: Unique crop identifier.
+          example: tomato
+        common_name:
+          type: string
+          description: Common name for the crop.
+          example: Tomato
+        scientific_name:
+          type: string
+          description: Scientific name for the crop.
+          example: Solanum lycopersicum
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: API key obtained from the Agrio API portal at pro.agrio.app/image-diagnosis-api. Include as a Bearer token in the Authorization header.

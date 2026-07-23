@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: Agrio Agriculture Balance Credit API
+  description: With Agrio APIs, you can access data on weather patterns, pest and disease predictions, image-based plant diagnosis, and satellite vegetation monitoring to build accurate crop advisory tools. Agrio is a precision plant protection solution that helps growers and crop advisors forecast, identify, and treat plant diseases, pests, and nutrient deficiencies.
+  version: 1.0.0
+  contact:
+    email: info@saillog.co
+    url: https://agrio.app
+  x-last-validated: '2026-04-19'
+servers:
+- url: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+  description: Production server.
+security:
+- BearerAuth: []
+tags:
+- name: Credit
+  description: Credit management for API usage.
+paths:
+  /v1/get-credit:
+    get:
+      summary: Agrio Get Credit Balance
+      description: Returns the current credit balance for the authenticated API account. Credits are consumed with each diagnosis API call. Use this endpoint to monitor usage and ensure sufficient credit for continued operation.
+      operationId: getCredit
+      tags:
+      - Credit
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token for API authentication.
+        required: true
+        schema:
+          type: string
+          example: Bearer YOUR_API_KEY
+      responses:
+        '200':
+          description: Current credit balance for the account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBalance'
+              examples:
+                GetCredit200Example:
+                  summary: Default getCredit 200 response
+                  x-microcks-default: true
+                  value:
+                    balance: 450
+                    currency: credits
+                    account_id: acc-500123
+        '401':
+          description: Unauthorized. Invalid or missing API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CreditBalance:
+      type: object
+      title: Credit Balance
+      description: Current API credit balance for the authenticated account.
+      properties:
+        balance:
+          type: integer
+          description: Number of available credits remaining.
+          example: 450
+        currency:
+          type: string
+          description: Credit unit type.
+          example: credits
+        account_id:
+          type: string
+          description: Unique identifier for the API account.
+          example: acc-500123
+      required:
+      - balance
+      - currency
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Standard error response.
+      properties:
+        error:
+          type: string
+          description: Error code or type.
+          example: unauthorized
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid or missing API key.
+        status:
+          type: integer
+          description: HTTP status code.
+          example: 401
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: API key obtained from the Agrio API portal at pro.agrio.app/image-diagnosis-api. Include as a Bearer token in the Authorization header.
