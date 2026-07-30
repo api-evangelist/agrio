@@ -1,4 +1,18 @@
 aid: agrio
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/agrio.png
 url: https://raw.githubusercontent.com/api-evangelist/agrio/refs/heads/main/apis.yml
 modified: '2026-05-19'
 description: Agrio is a precision plant protection solution that helps growers and crop advisors forecast, identify, and treat
@@ -12,42 +26,174 @@ tags:
 - AI
 - Crop Advisory
 apis:
-- aid: agrio:agrio
-  name: Agrio Agriculture API
-  description: The Agrio Agriculture API provides AI-powered plant disease and pest diagnosis from images, plus crop advisory
-    data, credit balance management, and access to a catalog of supported crop types. The Image Diagnosis API analyzes plant
-    photos to return ranked disease and pest identifications with confidence scores, common names, and scientific names.
+- aid: agrio:agrio-balance-api
+  name: agrio Balance API
+  description: Account credit balance and usage monitoring.
   humanURL: https://agrio.app/Agriculture-API/
   baseURL: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
   tags:
-  - Plant Disease
-  - Pest Detection
-  - AI
-  - Image Recognition
-  - Crop Advisory
+  - Balance
   properties:
+  - type: OpenAPI
+    url: openapi/agrio-balance-api-openapi.yml
   - type: Documentation
     url: https://agrio.app/Agriculture-API/
-  - type: OpenAPI
-    url: openapi/agrio-openapi-original.yml
   - type: JSONSchema
     url: json-schema/agrio-diagnosis-schema.json
-    title: Diagnosis Schema
   - type: JSONSchema
     url: json-schema/agrio-diagnosis-result-schema.json
-    title: Diagnosis Result Schema
   - type: JSONSchema
     url: json-schema/agrio-crop-schema.json
-    title: Crop Schema
   - type: JSONSchema
     url: json-schema/agrio-credit-balance-schema.json
-    title: Credit Balance Schema
   - type: JSONStructure
     url: json-structure/agrio-diagnosis-structure.json
-    title: Diagnosis Structure
   - type: JSONStructure
     url: json-structure/agrio-crop-structure.json
-    title: Crop Structure
+  - type: JSONLD
+    url: json-ld/agrio-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-balance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-credit.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-crops.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-diagnose.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-diagnosis.yaml
+- aid: agrio:agrio-credit-api
+  name: agrio Credit API
+  description: Credit management for API usage.
+  humanURL: https://agrio.app/Agriculture-API/
+  baseURL: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+  tags:
+  - Credit
+  properties:
+  - type: OpenAPI
+    url: openapi/agrio-credit-api-openapi.yml
+  - type: Documentation
+    url: https://agrio.app/Agriculture-API/
+  - type: JSONSchema
+    url: json-schema/agrio-diagnosis-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-diagnosis-result-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-crop-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-credit-balance-schema.json
+  - type: JSONStructure
+    url: json-structure/agrio-diagnosis-structure.json
+  - type: JSONStructure
+    url: json-structure/agrio-crop-structure.json
+  - type: JSONLD
+    url: json-ld/agrio-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-balance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-credit.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-crops.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-diagnose.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-diagnosis.yaml
+- aid: agrio:agrio-crops-api
+  name: agrio Crops API
+  description: Supported agricultural crop types.
+  humanURL: https://agrio.app/Agriculture-API/
+  baseURL: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+  tags:
+  - Crops
+  properties:
+  - type: OpenAPI
+    url: openapi/agrio-crops-api-openapi.yml
+  - type: Documentation
+    url: https://agrio.app/Agriculture-API/
+  - type: JSONSchema
+    url: json-schema/agrio-diagnosis-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-diagnosis-result-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-crop-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-credit-balance-schema.json
+  - type: JSONStructure
+    url: json-structure/agrio-diagnosis-structure.json
+  - type: JSONStructure
+    url: json-structure/agrio-crop-structure.json
+  - type: JSONLD
+    url: json-ld/agrio-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-balance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-credit.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-crops.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-diagnose.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-diagnosis.yaml
+- aid: agrio:agrio-diagnose-api
+  name: agrio Diagnose API
+  description: Plant disease and pest diagnosis from images.
+  humanURL: https://agrio.app/Agriculture-API/
+  baseURL: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+  tags:
+  - Diagnose
+  properties:
+  - type: OpenAPI
+    url: openapi/agrio-diagnose-api-openapi.yml
+  - type: Documentation
+    url: https://agrio.app/Agriculture-API/
+  - type: JSONSchema
+    url: json-schema/agrio-diagnosis-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-diagnosis-result-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-crop-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-credit-balance-schema.json
+  - type: JSONStructure
+    url: json-structure/agrio-diagnosis-structure.json
+  - type: JSONStructure
+    url: json-structure/agrio-crop-structure.json
+  - type: JSONLD
+    url: json-ld/agrio-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-balance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-credit.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-crops.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-diagnose.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/agrio-diagnosis.yaml
+- aid: agrio:agrio-diagnosis-api
+  name: agrio Diagnosis API
+  description: Diagnosis results and disease identification data.
+  humanURL: https://agrio.app/Agriculture-API/
+  baseURL: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
+  tags:
+  - Diagnosis
+  properties:
+  - type: OpenAPI
+    url: openapi/agrio-diagnosis-api-openapi.yml
+  - type: Documentation
+    url: https://agrio.app/Agriculture-API/
+  - type: JSONSchema
+    url: json-schema/agrio-diagnosis-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-diagnosis-result-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-crop-schema.json
+  - type: JSONSchema
+    url: json-schema/agrio-credit-balance-schema.json
+  - type: JSONStructure
+    url: json-structure/agrio-diagnosis-structure.json
+  - type: JSONStructure
+    url: json-structure/agrio-crop-structure.json
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
   - type: X-NaftikoCapability
