@@ -1,0 +1,22 @@
+{
+  "provider": "agrio",
+  "sources": [
+    "agrio-balance-api-openapi.yml",
+    "agrio-credit-api-openapi.yml",
+    "agrio-crops-api-openapi.yml",
+    "agrio-diagnose-api-openapi.yml",
+    "agrio-diagnosis-api-openapi.yml"
+  ],
+  "outputs": [
+    "agrio-balance-api-openapi.yml",
+    "agrio-credit-api-openapi.yml",
+    "agrio-crops-api-openapi.yml",
+    "agrio-diagnose-api-openapi.yml",
+    "agrio-diagnosis-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
