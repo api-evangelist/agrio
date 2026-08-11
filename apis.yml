@@ -52,16 +52,6 @@ apis:
     url: json-structure/agrio-crop-structure.json
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-balance.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-credit.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-crops.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnose.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnosis.yaml
 - aid: agrio:agrio-credit-api
   name: agrio Credit API
   description: Credit management for API usage.
@@ -88,16 +78,6 @@ apis:
     url: json-structure/agrio-crop-structure.json
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-balance.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-credit.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-crops.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnose.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnosis.yaml
 - aid: agrio:agrio-crops-api
   name: agrio Crops API
   description: Supported agricultural crop types.
@@ -124,16 +104,6 @@ apis:
     url: json-structure/agrio-crop-structure.json
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-balance.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-credit.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-crops.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnose.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnosis.yaml
 - aid: agrio:agrio-diagnose-api
   name: agrio Diagnose API
   description: Plant disease and pest diagnosis from images.
@@ -160,16 +130,6 @@ apis:
     url: json-structure/agrio-crop-structure.json
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-balance.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-credit.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-crops.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnose.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnosis.yaml
 - aid: agrio:agrio-diagnosis-api
   name: agrio Diagnosis API
   description: Diagnosis results and disease identification data.
@@ -196,16 +156,6 @@ apis:
     url: json-structure/agrio-crop-structure.json
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-balance.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-credit.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-crops.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnose.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/agrio-diagnosis.yaml
 common:
 - type: AgenticAccess
   url: agentic-access/agrio-agentic-access.yml
