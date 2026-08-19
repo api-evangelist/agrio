@@ -1,0 +1,381 @@
+{
+  "item": [
+    {
+      "id": "c046ca6c-5323-4845-b9f3-8e44121b6e0f",
+      "name": "Diagnosis",
+      "description": {
+        "content": "Diagnosis results and disease identification data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5be4beff-4a5a-4087-9003-82c3eb330678",
+          "name": "Agrio Diagnose Plant",
+          "request": {
+            "name": "Agrio Diagnose Plant",
+            "description": {
+              "content": "Analyzes an uploaded plant image using AI computer vision to identify diseases, pests, and nutrient deficiencies. Returns a ranked list of diagnoses with confidence scores, common and scientific names, and treatment recommendations. One credit is consumed per diagnosis request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "diagnose"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "crop_id",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) Crop identifier from the supported crops list."
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "description": "(Required) Plant image file for diagnosis (JPEG or PNG)."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "17de3ab6-0beb-43a2-b8a1-fba8d786067f",
+              "name": "Diagnosis results with ranked disease/pest identifications.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "diagnose"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token for API authentication.",
+                    "key": "Authorization",
+                    "value": "Bearer YOUR_API_KEY"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Crop identifier from the supported crops list.",
+                        "type": "text/plain"
+                      },
+                      "key": "crop_id",
+                      "value": "tomato",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Plant image file for diagnosis (JPEG or PNG).",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"crop\": \"tomato\",\n  \"cropConfidence\": \"high\",\n  \"idArray\": [\n    {\n      \"id\": \"early_blight\",\n      \"confidence\": 0.87,\n      \"commonName\": \"Early Blight\",\n      \"scientificName\": \"Alternaria solani\"\n    },\n    {\n      \"id\": \"late_blight\",\n      \"confidence\": 0.09,\n      \"commonName\": \"Late Blight\",\n      \"scientificName\": \"Phytophthora infestans\"\n    },\n    {\n      \"id\": \"septoria_leaf_spot\",\n      \"confidence\": 0.04,\n      \"commonName\": \"Septoria Leaf Spot\",\n      \"scientificName\": \"Septoria lycopersici\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1f14f0e-8a35-4f95-ba67-7cab92ec083c",
+              "name": "Bad request. Invalid image or missing parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "diagnose"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token for API authentication.",
+                    "key": "Authorization",
+                    "value": "Bearer YOUR_API_KEY"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Crop identifier from the supported crops list.",
+                        "type": "text/plain"
+                      },
+                      "key": "crop_id",
+                      "value": "tomato",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Plant image file for diagnosis (JPEG or PNG).",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"unauthorized\",\n  \"message\": \"Invalid or missing API key.\",\n  \"status\": 401\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdb2e61e-aa30-4bcc-83d3-fa62ef56de0b",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "diagnose"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token for API authentication.",
+                    "key": "Authorization",
+                    "value": "Bearer YOUR_API_KEY"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Crop identifier from the supported crops list.",
+                        "type": "text/plain"
+                      },
+                      "key": "crop_id",
+                      "value": "tomato",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Plant image file for diagnosis (JPEG or PNG).",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"unauthorized\",\n  \"message\": \"Invalid or missing API key.\",\n  \"status\": 401\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0adf6aa3-b2e5-42c7-a851-f568ff7a0ab4",
+              "name": "Insufficient credits. Account balance is zero.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "diagnose"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token for API authentication.",
+                    "key": "Authorization",
+                    "value": "Bearer YOUR_API_KEY"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) Crop identifier from the supported crops list.",
+                        "type": "text/plain"
+                      },
+                      "key": "crop_id",
+                      "value": "tomato",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Plant image file for diagnosis (JPEG or PNG).",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"unauthorized\",\n  \"message\": \"Invalid or missing API key.\",\n  \"status\": 401\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://agrio-api-gateway-6it0wqn1.uc.gateway.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4a5f21f8-b562-417a-8bcf-025f5d0526d6",
+    "name": "Agrio Agriculture Balance Diagnosis API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "With Agrio APIs, you can access data on weather patterns, pest and disease predictions, image-based plant diagnosis, and satellite vegetation monitoring to build accurate crop advisory tools. Agrio is a precision plant protection solution that helps growers and crop advisors forecast, identify, and treat plant diseases, pests, and nutrient deficiencies.\n\nContact Support:\n Email: info@saillog.co",
+      "type": "text/plain"
+    }
+  }
+}

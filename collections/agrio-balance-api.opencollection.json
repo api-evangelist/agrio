@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Agrio Agriculture Balance API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Balance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agrio Get Credit Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrio-api-gateway-6it0wqn1.uc.gateway.dev/v1/get-credit",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the current credit balance for the authenticated API account. Credits are consumed with each diagnosis API call. Use this endpoint to monitor usage and ensure sufficient credit for continued operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

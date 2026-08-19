@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Agrio Agriculture Balance Crops API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Crops",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agrio Get Supported Crops",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agrio-api-gateway-6it0wqn1.uc.gateway.dev/v1/get-supported-crops",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns a list of all agricultural crop types supported by the Agrio diagnosis service. Use this endpoint to determine which crops can be analyzed with the /v1/diagnose endpoint before submitting images."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

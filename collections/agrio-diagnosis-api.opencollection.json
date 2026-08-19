@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Agrio Agriculture Balance Diagnosis API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Diagnosis",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agrio Diagnose Plant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agrio-api-gateway-6it0wqn1.uc.gateway.dev/v1/diagnose",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Analyzes an uploaded plant image using AI computer vision to identify diseases, pests, and nutrient deficiencies. Returns a ranked list of diagnoses with confidence scores, common and scientific names, and treatment recommendations. One credit is consumed per diagnosis request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

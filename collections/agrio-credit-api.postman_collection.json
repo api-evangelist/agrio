@@ -1,0 +1,177 @@
+{
+  "item": [
+    {
+      "id": "a24b0cc9-655d-45ce-aa8e-29e8970c95a7",
+      "name": "Credit",
+      "description": {
+        "content": "Credit management for API usage.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "99f44855-8b53-4a8b-9b06-07d8b84a1e75",
+          "name": "Agrio Get Credit Balance",
+          "request": {
+            "name": "Agrio Get Credit Balance",
+            "description": {
+              "content": "Returns the current credit balance for the authenticated API account. Credits are consumed with each diagnosis API call. Use this endpoint to monitor usage and ensure sufficient credit for continued operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "get-credit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24d64f94-e4a3-477a-b901-8626fed7ebc7",
+              "name": "Current credit balance for the account.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "get-credit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token for API authentication.",
+                    "key": "Authorization",
+                    "value": "Bearer YOUR_API_KEY"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"balance\": 450,\n  \"currency\": \"credits\",\n  \"account_id\": \"acc-500123\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f29d434-0de4-4413-a68f-f8a0585f99d6",
+              "name": "Unauthorized. Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "get-credit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token for API authentication.",
+                    "key": "Authorization",
+                    "value": "Bearer YOUR_API_KEY"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"unauthorized\",\n  \"message\": \"Invalid or missing API key.\",\n  \"status\": 401\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://agrio-api-gateway-6it0wqn1.uc.gateway.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7e3a6128-d46f-4200-bc57-09e5e88dcded",
+    "name": "Agrio Agriculture Balance Credit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "With Agrio APIs, you can access data on weather patterns, pest and disease predictions, image-based plant diagnosis, and satellite vegetation monitoring to build accurate crop advisory tools. Agrio is a precision plant protection solution that helps growers and crop advisors forecast, identify, and treat plant diseases, pests, and nutrient deficiencies.\n\nContact Support:\n Email: info@saillog.co",
+      "type": "text/plain"
+    }
+  }
+}
