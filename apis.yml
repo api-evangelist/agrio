@@ -24,6 +24,12 @@ tags:
 - Agriculture
 - Plant Disease
 - Pest Detection
+- Artificial Intelligence
+- Crop Advisory
+tags_raw:
+- Agriculture
+- Plant Disease
+- Pest Detection
 - AI
 - Crop Advisory
 apis:
@@ -33,6 +39,8 @@ apis:
   humanURL: https://agrio.app/Agriculture-API/
   baseURL: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
   tags:
+  - Balances
+  tags_raw:
   - Balance
   properties:
   - type: OpenAPI
