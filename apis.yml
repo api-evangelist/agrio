@@ -61,32 +61,6 @@ apis:
     url: json-structure/agrio-crop-structure.json
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
-- aid: agrio:agrio-credit-api
-  name: agrio Credit API
-  description: Credit management for API usage.
-  humanURL: https://agrio.app/Agriculture-API/
-  baseURL: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
-  tags:
-  - Credit
-  properties:
-  - type: OpenAPI
-    url: openapi/agrio-credit-api-openapi.yml
-  - type: Documentation
-    url: https://agrio.app/Agriculture-API/
-  - type: JSONSchema
-    url: json-schema/agrio-diagnosis-schema.json
-  - type: JSONSchema
-    url: json-schema/agrio-diagnosis-result-schema.json
-  - type: JSONSchema
-    url: json-schema/agrio-crop-schema.json
-  - type: JSONSchema
-    url: json-schema/agrio-credit-balance-schema.json
-  - type: JSONStructure
-    url: json-structure/agrio-diagnosis-structure.json
-  - type: JSONStructure
-    url: json-structure/agrio-crop-structure.json
-  - type: JSONLD
-    url: json-ld/agrio-context.jsonld
 - aid: agrio:agrio-crops-api
   name: agrio Crops API
   description: Supported agricultural crop types.
@@ -123,32 +97,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/agrio-diagnose-api-openapi.yml
-  - type: Documentation
-    url: https://agrio.app/Agriculture-API/
-  - type: JSONSchema
-    url: json-schema/agrio-diagnosis-schema.json
-  - type: JSONSchema
-    url: json-schema/agrio-diagnosis-result-schema.json
-  - type: JSONSchema
-    url: json-schema/agrio-crop-schema.json
-  - type: JSONSchema
-    url: json-schema/agrio-credit-balance-schema.json
-  - type: JSONStructure
-    url: json-structure/agrio-diagnosis-structure.json
-  - type: JSONStructure
-    url: json-structure/agrio-crop-structure.json
-  - type: JSONLD
-    url: json-ld/agrio-context.jsonld
-- aid: agrio:agrio-diagnosis-api
-  name: agrio Diagnosis API
-  description: Diagnosis results and disease identification data.
-  humanURL: https://agrio.app/Agriculture-API/
-  baseURL: https://agrio-api-gateway-6it0wqn1.uc.gateway.dev
-  tags:
-  - Diagnosis
-  properties:
-  - type: OpenAPI
-    url: openapi/agrio-diagnosis-api-openapi.yml
   - type: Documentation
     url: https://agrio.app/Agriculture-API/
   - type: JSONSchema
