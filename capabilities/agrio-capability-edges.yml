@@ -1,0 +1,25 @@
+slug: agrio
+provider: agrio
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Agriculture & Food Production
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Diagnose
+  spec_file: agrio-diagnose-api-openapi.yml
+  capability_id: BC-3500.70
+  capability_id_l1: BC-3500
+  capability_name: Crop Monitoring and Scouting
+  confidence: 0.8
+  evidence: 'POST /v1/diagnose  getDiagnosis  Agrio Diagnose Plant; schemas: DiagnosisResult, Diagnosis
+    — "image-based plant diagnosis" to "identify, and treat plant diseases, pests, and nutrient deficiencies"'
+  reason: Image-based identification of crop disease/pest/deficiency is field-level crop health monitoring
+    and scouting; could also be advisory, but detection of crop health is the core.

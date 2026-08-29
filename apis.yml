@@ -125,6 +125,9 @@ apis:
   - type: JSONLD
     url: json-ld/agrio-context.jsonld
 common:
+- type: CapabilityMap
+  url: capabilities/agrio-capability-edges.yml
+  name: agrio Business Capability Map
 - type: AgenticAccess
   url: agentic-access/agrio-agentic-access.yml
 - type: DomainSecurity
