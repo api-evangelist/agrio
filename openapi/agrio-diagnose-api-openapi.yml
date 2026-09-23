@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Agrio Agriculture Balance Diagnose API
+  title: Agrio Agriculture Diagnose API
   description: With Agrio APIs, you can access data on weather patterns, pest and disease predictions, image-based plant diagnosis, and satellite vegetation monitoring to build accurate crop advisory tools. Agrio is a precision plant protection solution that helps growers and crop advisors forecast, identify, and treat plant diseases, pests, and nutrient deficiencies.
   version: 1.0.0
   contact:
@@ -94,22 +94,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    DiagnoseRequest:
-      type: object
-      title: Diagnose Request
-      description: Image and crop context for plant disease diagnosis.
-      properties:
-        crop_id:
-          type: string
-          description: Crop identifier from the supported crops list.
-          example: tomato
-        image:
-          type: string
-          format: binary
-          description: Plant image file for diagnosis (JPEG or PNG).
-      required:
-      - crop_id
-      - image
     DiagnosisResult:
       type: object
       title: Diagnosis Result
@@ -176,6 +160,22 @@ components:
       - crop
       - cropConfidence
       - idArray
+    DiagnoseRequest:
+      type: object
+      title: Diagnose Request
+      description: Image and crop context for plant disease diagnosis.
+      properties:
+        crop_id:
+          type: string
+          description: Crop identifier from the supported crops list.
+          example: tomato
+        image:
+          type: string
+          format: binary
+          description: Plant image file for diagnosis (JPEG or PNG).
+      required:
+      - crop_id
+      - image
   securitySchemes:
     BearerAuth:
       type: http

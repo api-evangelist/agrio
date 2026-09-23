@@ -1,0 +1,29 @@
+# Front Door AI Index — agrio — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: agrio
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: agrio.app
+  final_host: agrio.app
+  ownership: own
+  owner: agrio
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 12
+  host_score: 12
+  density: 11.75
+  words: 1021
+  tiers:
+    agentic: 0
+    core: 12
+    model: 0
+  ambiguous: 5
+  top_terms:
+    AI: 6
+    artificial intelligence: 4
+    intelligence: 4
+    generative ai: 2
+    smart: 1

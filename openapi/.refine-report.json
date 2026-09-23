@@ -1,22 +1,25 @@
 {
   "provider": "agrio",
   "sources": [
-    "agrio-balance-api-openapi.yml",
-    "agrio-credit-api-openapi.yml",
-    "agrio-crops-api-openapi.yml",
-    "agrio-diagnose-api-openapi.yml",
-    "agrio-diagnosis-api-openapi.yml"
+    "_original/agrio-openapi-original.yml"
   ],
   "outputs": [
     "agrio-balance-api-openapi.yml",
-    "agrio-credit-api-openapi.yml",
     "agrio-crops-api-openapi.yml",
-    "agrio-diagnose-api-openapi.yml",
-    "agrio-diagnosis-api-openapi.yml"
+    "agrio-diagnose-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "agrio-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "agrio-openapi-original.yml: multi-axis tagging (5 tags, 3 first tags, 1.67x duplication over 3 operations) \u2014 split on first tag, 2 operations narrowed",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "agrio-balance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agrio-crops-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agrio-diagnose-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
