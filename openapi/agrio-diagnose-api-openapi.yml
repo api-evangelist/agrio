@@ -121,23 +121,22 @@ components:
       - confidence
       - commonName
       - scientificName
-    ErrorResponse:
+    DiagnoseRequest:
       type: object
-      title: Error Response
-      description: Standard error response.
+      title: Diagnose Request
+      description: Image and crop context for plant disease diagnosis.
       properties:
-        error:
+        crop_id:
           type: string
-          description: Error code or type.
-          example: unauthorized
-        message:
+          description: Crop identifier from the supported crops list.
+          example: tomato
+        image:
           type: string
-          description: Human-readable error message.
-          example: Invalid or missing API key.
-        status:
-          type: integer
-          description: HTTP status code.
-          example: 401
+          format: binary
+          description: Plant image file for diagnosis (JPEG or PNG).
+      required:
+      - crop_id
+      - image
     Diagnosis:
       type: object
       title: Diagnosis
@@ -160,22 +159,23 @@ components:
       - crop
       - cropConfidence
       - idArray
-    DiagnoseRequest:
+    ErrorResponse:
       type: object
-      title: Diagnose Request
-      description: Image and crop context for plant disease diagnosis.
+      title: Error Response
+      description: Standard error response.
       properties:
-        crop_id:
+        error:
           type: string
-          description: Crop identifier from the supported crops list.
-          example: tomato
-        image:
+          description: Error code or type.
+          example: unauthorized
+        message:
           type: string
-          format: binary
-          description: Plant image file for diagnosis (JPEG or PNG).
-      required:
-      - crop_id
-      - image
+          description: Human-readable error message.
+          example: Invalid or missing API key.
+        status:
+          type: integer
+          description: HTTP status code.
+          example: 401
   securitySchemes:
     BearerAuth:
       type: http
