@@ -94,33 +94,23 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    DiagnosisResult:
+    ErrorResponse:
       type: object
-      title: Diagnosis Result
-      description: A single disease or pest identification result.
+      title: Error Response
+      description: Standard error response.
       properties:
-        id:
+        error:
           type: string
-          description: Unique identifier for the disease or pest.
-          example: early_blight
-        confidence:
-          type: number
-          format: double
-          description: Confidence score for this diagnosis (0.0 to 1.0).
-          example: 0.87
-        commonName:
+          description: Error code or type.
+          example: unauthorized
+        message:
           type: string
-          description: Common name of the disease or pest.
-          example: Early Blight
-        scientificName:
-          type: string
-          description: Scientific name of the disease or pest.
-          example: Alternaria solani
-      required:
-      - id
-      - confidence
-      - commonName
-      - scientificName
+          description: Human-readable error message.
+          example: Invalid or missing API key.
+        status:
+          type: integer
+          description: HTTP status code.
+          example: 401
     DiagnoseRequest:
       type: object
       title: Diagnose Request
@@ -159,23 +149,33 @@ components:
       - crop
       - cropConfidence
       - idArray
-    ErrorResponse:
+    DiagnosisResult:
       type: object
-      title: Error Response
-      description: Standard error response.
+      title: Diagnosis Result
+      description: A single disease or pest identification result.
       properties:
-        error:
+        id:
           type: string
-          description: Error code or type.
-          example: unauthorized
-        message:
+          description: Unique identifier for the disease or pest.
+          example: early_blight
+        confidence:
+          type: number
+          format: double
+          description: Confidence score for this diagnosis (0.0 to 1.0).
+          example: 0.87
+        commonName:
           type: string
-          description: Human-readable error message.
-          example: Invalid or missing API key.
-        status:
-          type: integer
-          description: HTTP status code.
-          example: 401
+          description: Common name of the disease or pest.
+          example: Early Blight
+        scientificName:
+          type: string
+          description: Scientific name of the disease or pest.
+          example: Alternaria solani
+      required:
+      - id
+      - confidence
+      - commonName
+      - scientificName
   securitySchemes:
     BearerAuth:
       type: http

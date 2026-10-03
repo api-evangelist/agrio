@@ -64,32 +64,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Crop:
-      type: object
-      title: Crop
-      description: A supported agricultural crop type.
-      properties:
-        id:
-          type: string
-          description: Unique crop identifier.
-          example: tomato
-        common_name:
-          type: string
-          description: Common name for the crop.
-          example: Tomato
-        scientific_name:
-          type: string
-          description: Scientific name for the crop.
-          example: Solanum lycopersicum
-    SupportedCropsResponse:
-      type: object
-      title: Supported Crops Response
-      description: List of crop types supported by the Agrio diagnosis service.
-      properties:
-        crops:
-          type: array
-          items:
-            $ref: '#/components/schemas/Crop'
     ErrorResponse:
       type: object
       title: Error Response
@@ -107,6 +81,32 @@ components:
           type: integer
           description: HTTP status code.
           example: 401
+    SupportedCropsResponse:
+      type: object
+      title: Supported Crops Response
+      description: List of crop types supported by the Agrio diagnosis service.
+      properties:
+        crops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Crop'
+    Crop:
+      type: object
+      title: Crop
+      description: A supported agricultural crop type.
+      properties:
+        id:
+          type: string
+          description: Unique crop identifier.
+          example: tomato
+        common_name:
+          type: string
+          description: Common name for the crop.
+          example: Tomato
+        scientific_name:
+          type: string
+          description: Scientific name for the crop.
+          example: Solanum lycopersicum
   securitySchemes:
     BearerAuth:
       type: http
