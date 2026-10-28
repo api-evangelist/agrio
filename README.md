@@ -1,4 +1,4 @@
-# Agrio (agrio)
+# Agrio
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,129 +66,174 @@
 
 Agrio is a precision plant protection solution that helps growers and crop advisors forecast, identify, and treat plant diseases, pests, and nutrient deficiencies. With Agrio APIs, developers can access AI-powered plant disease diagnosis from images, crop advisory data, weather pattern analysis, pest and disease predictions, and satellite vegetation monitoring to build accurate crop advisory tools.
 
-**URL:** [https://agrio.app](https://agrio.app)
+**Areas:** Agriculture · Plant Disease · Pest Detection · Artificial Intelligence · Crop Advisory
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Agrio on APIs.io
 
-## Tags:
+Everything profiled for Agrio is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/agrio/](https://apis.io/providers/agrio/)** — or go straight to one of the APIs or properties below.
 
- - Agriculture, Plant Disease, Pest Detection, AI, Crop Advisory
+### APIs (3)
 
-## Timestamps
+- [agrio Balance API](https://apis.io/apis/agrio/agrio-balance-api/) — Account credit balance and usage monitoring.
+- [agrio Crops API](https://apis.io/apis/agrio/agrio-crops-api/) — Supported agricultural crop types.
+- [agrio Diagnose API](https://apis.io/apis/agrio/agrio-diagnose-api/) — Plant disease and pest diagnosis from images.
 
-- **Created:** 2024-07-11
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Agrio Agriculture API
-The Agrio Agriculture API provides AI-powered plant disease and pest diagnosis from images, plus crop advisory data, credit balance management, and access to a catalog of supported crop types. Returns ranked disease and pest identifications with confidence scores, common names, and scientific names.
+#### Agentic access (1)
 
-**Human URL:** [https://agrio.app/Agriculture-API/](https://agrio.app/Agriculture-API/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Agrio Agentic Access](https://apis.io/agentic-access/agrio/agrio-agentic-access/)
 
- - Plant Disease, Pest Detection, AI, Image Recognition, Crop Advisory
+#### JSON Schema (7)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://agrio.app/Agriculture-API/)
-- [OpenAPI](openapi/agrio-openapi-original.yml)
-- [Diagnosis Schema](json-schema/agrio-diagnosis-schema.json)
-- [Diagnosis Result Schema](json-schema/agrio-diagnosis-result-schema.json)
-- [Crop Schema](json-schema/agrio-crop-schema.json)
-- [Credit Balance Schema](json-schema/agrio-credit-balance-schema.json)
-- [Diagnosis Structure](json-structure/agrio-diagnosis-structure.json)
-- [Crop Structure](json-structure/agrio-crop-structure.json)
-- [JSON-LD Context](json-ld/agrio-context.jsonld)
+- [Credit Balance](https://apis.io/schemas/agrio/agrio-credit-balance/)
+- [Crop](https://apis.io/schemas/agrio/agrio-crop/)
+- [Diagnose Request](https://apis.io/schemas/agrio/agrio-diagnose-request/)
+- [Diagnosis](https://apis.io/schemas/agrio/agrio-diagnosis/)
+- [Diagnosis Result](https://apis.io/schemas/agrio/agrio-diagnosis-result/)
+- [Error Response](https://apis.io/schemas/agrio/agrio-error-response/)
+- [Supported Crops Response](https://apis.io/schemas/agrio/agrio-supported-crops-response/)
 
-## Common Properties
+#### JSON Structure (7)
+
+Data models expressed in JSON Structure.
+
+- [Agrio Credit Balance Structure](https://apis.io/json-structure/agrio/agrio-credit-balance-structure/)
+- [Agrio Crop Structure](https://apis.io/json-structure/agrio/agrio-crop-structure/)
+- [Agrio Diagnose Request Structure](https://apis.io/json-structure/agrio/agrio-diagnose-request-structure/)
+- [Agrio Diagnosis Result Structure](https://apis.io/json-structure/agrio/agrio-diagnosis-result-structure/)
+- [Agrio Diagnosis Structure](https://apis.io/json-structure/agrio/agrio-diagnosis-structure/)
+- [Agrio Error Response Structure](https://apis.io/json-structure/agrio/agrio-error-response-structure/)
+- [Agrio Supported Crops Response Structure](https://apis.io/json-structure/agrio/agrio-supported-crops-response-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Agrio Context](https://apis.io/jsonld/agrio/agrio-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Agrio Vocabulary](https://apis.io/vocabularies/agrio/agrio-vocabulary/)
+
+#### Examples (7)
+
+Example requests and responses.
+
+- [Agrio Credit Balance Example](https://apis.io/examples/agrio/agrio-credit-balance-example/)
+- [Agrio Crop Example](https://apis.io/examples/agrio/agrio-crop-example/)
+- [Agrio Diagnose Request Example](https://apis.io/examples/agrio/agrio-diagnose-request-example/)
+- [Agrio Diagnosis Example](https://apis.io/examples/agrio/agrio-diagnosis-example/)
+- [Agrio Diagnosis Result Example](https://apis.io/examples/agrio/agrio-diagnosis-result-example/)
+- [Agrio Error Response Example](https://apis.io/examples/agrio/agrio-error-response-example/)
+- [Agrio Supported Crops Response Example](https://apis.io/examples/agrio/agrio-supported-crops-response-example/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Agrio Agriculture Balance API](https://apis.io/collections/agrio/open-agrio-balance-api/)
+- [Agrio Agriculture Balance Credit API](https://apis.io/collections/agrio/open-agrio-credit-api/)
+- [Agrio Agriculture Balance Crops API](https://apis.io/collections/agrio/open-agrio-crops-api/)
+- [Agrio Agriculture Balance Diagnose API](https://apis.io/collections/agrio/open-agrio-diagnose-api/)
+- [Agrio Agriculture Balance Diagnosis API](https://apis.io/collections/agrio/open-agrio-diagnosis-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Agrio — jsonschema rules](https://apis.io/rules/agrio/agrio-jsonschema-spectral-rules/)
+- [Agrio API Rules](https://apis.io/rules/agrio/agrio-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Agrio Authentication](https://apis.io/security/agrio/agrio-authentication/)
+- [Agrio Domain Security](https://apis.io/security/agrio/agrio-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Agrio Plans Pricing](https://apis.io/plans/agrio/agrio-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Agrio Rate Limits](https://apis.io/rate-limits/agrio/agrio-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Agrio Finops](https://apis.io/finops/agrio/agrio-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://agrio.app)
-- [API Portal](https://pro.agrio.app/image-diagnosis-api)
-- [Support](mailto:info@saillog.co)
+- [Blog](https://agrio.app/feed/)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| AI Image Diagnosis | Computer vision algorithms identify plant diseases, pests, and nutrient deficiencies from uploaded photos with confidence scores. |
-| AgrioShield Pest Prediction | Predictive algorithms forecast disease pressure before or between scouting events to enable proactive intervention. |
-| Satellite Imagery Alerts | Remote sensing AI detects vegetation issues from satellite data, enabling early detection before visible symptoms appear. |
-| Ranked Diagnoses | Returns multiple ranked diagnoses with confidence scores, common names, and scientific names for disambiguation. |
-| Credit-Based Usage | API usage is metered using a credit system; one credit is consumed per diagnosis request. |
-| Supported Crop Catalog | Discoverable catalog of supported crop types for building targeted diagnosis workflows. |
+**Kin Score 36.3** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 67.5 |
+| Contract governance | 27.3 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 38.1 |
+| Access clarity | 7.9 |
 
-| Name | Description |
-|------|-------------|
-| Crop Advisory Tool Integration | Embed AI plant disease diagnosis into existing crop advisory and farm management applications. |
-| In-Field Disease Identification | Enable agronomists and farmers to photograph plant symptoms and receive immediate AI-powered diagnosis. |
-| Early Warning Systems | Use AgrioShield alerts to notify growers when disease or pest conditions become favorable before visible symptoms appear. |
-| Precision Agriculture Platforms | Integrate Agrio diagnosis into precision agriculture platforms for targeted treatment recommendations. |
-| Research and Development | Access Agrio plant disease data for agricultural research and development of new advisory models. |
+**Agent readiness 28.7** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| Weather Data Systems | Agrio APIs integrate weather pattern data to enhance pest and disease prediction models. |
-| Satellite Imagery Providers | Remote sensing data from satellite providers is used for vegetation monitoring and anomaly detection. |
+**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/agrio/](https://apis.io/providers/agrio/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Agrio Agriculture API](openapi/agrio-openapi-original.yml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Agrio: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [Credit Balance Schema](json-schema/agrio-credit-balance-schema.json)
-- [Diagnose Request Schema](json-schema/agrio-diagnose-request-schema.json)
-- [Diagnosis Result Schema](json-schema/agrio-diagnosis-result-schema.json)
-- [Diagnosis Schema](json-schema/agrio-diagnosis-schema.json)
-- [Crop Schema](json-schema/agrio-crop-schema.json)
-- [Supported Crops Response Schema](json-schema/agrio-supported-crops-response-schema.json)
-- [Error Response Schema](json-schema/agrio-error-response-schema.json)
-
-### JSON Structure
-
-- [Credit Balance Structure](json-structure/agrio-credit-balance-structure.json)
-- [Diagnosis Result Structure](json-structure/agrio-diagnosis-result-structure.json)
-- [Diagnosis Structure](json-structure/agrio-diagnosis-structure.json)
-- [Crop Structure](json-structure/agrio-crop-structure.json)
-
-### JSON-LD
-
-- [Agrio Context](json-ld/agrio-context.jsonld)
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Agrio API](capabilities/shared/agrio-api.yaml) — 3 operations for plant disease diagnosis and crop advisory
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Crop Protection](capabilities/crop-protection.yaml) | Agrio Agriculture API | 3 | Agronomist, Crop Advisor, Precision Agriculture Developer |
-
-## Vocabulary
-
-- [Agrio Vocabulary](vocabulary/agrio-vocabulary.yaml) — Unified taxonomy mapping 3 resources, 3 actions, 1 workflow, and 3 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Agrio Spectral Rules](rules/agrio-spectral-rules.yml) — 21 rules across 9 categories enforcing Agrio API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/agrio/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
