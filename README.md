@@ -187,18 +187,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 36.3** — thin · rubric 0.24.0 · scored 2026-10-17
+**Kin Score 36.1** — thin · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
-| Discoverability | 66.1 |
+| Discoverability | 73.2 |
 | Contract quality | 67.5 |
 | Contract governance | 27.3 |
-| Operational transparency | 7.9 |
-| Developer ergonomics | 38.1 |
-| Access clarity | 7.9 |
+| Operational transparency | 7.1 |
+| Developer ergonomics | 39.3 |
+| Access clarity | 6.4 |
 
-**Agent readiness 28.7** — agent-ready
+**Agent readiness 28.1** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -221,8 +221,14 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Protected Resource Metadata | — |
 | Dynamic Client Registration | — |
 | Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
-**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
+**Regulatory alignment 10.0** — Horizontal (data, software, accessibility, platform)
 
 The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/agrio/](https://apis.io/providers/agrio/).
 
